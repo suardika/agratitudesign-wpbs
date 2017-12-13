@@ -1,0 +1,24 @@
+{
+  "name": "agratitudesign-wpbs",
+  "version": "1.0.0",
+  "description": "agratitudesign wordpress theme bootstrap 4",
+  "main": "index.php",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suardika/agratitudesign-wpbs.git"
+  },
+  "author": "suardika",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/suardika/agratitudesign-wpbs/issues"
+  },
+  "homepage": "https://github.com/suardika/agratitudesign-wpbs#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^3.2.1",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}
