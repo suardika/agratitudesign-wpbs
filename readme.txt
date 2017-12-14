@@ -11,28 +11,46 @@ License URI: LICENSE
 
 A starter theme called agratitudesign telaga.
 
-== Description ==
+--
 
-Telagabali theme powered by agratitudesign underscores
+// please remove after this
 
-== Installation ==
+//    <!-- Bootstrap CSS -->
+//    <link rel="stylesheet" href="css/bootstrap.min.css">
+//    <!-- Owl Carosel -->
+//    <link rel="stylesheet" href="css/owl.carousel.min.css">
+//    <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
-1. In your admin panel, go to Appearance > Themes and click the Add New button.
-2. Click Upload Theme and Choose File, then select the theme's .zip file. Click Install Now.
-3. Click Activate to use your new theme right away.
+//    <link rel="stylesheet" href="css/font-awesome.min.css">
+//    <link rel="stylesheet" href="css/animate.css">
+//    <link rel="stylesheet" href="css/venobox.css">
+// <link rel="stylesheet" href="css/style.css">
 
-== Frequently Asked Questions ==
+// <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+// <script src="js/jquery.min.js"></script>
+// <script src="js/popper.min.js"></script>
+// <script src="js/bootstrap.min.js"></script>
+// <!-- All Plugin js -->
+// <script src="js/plugin.min.js"></script>
+// <!-- Custom js -->
+// <script src="js/custom.js"></script>
 
-= Does this theme support any plugins? =
+purifycss
+==========
 
-agratitudesign telaga includes support for Infinite Scroll in Jetpack.
+npm install grunt-purifycss -g
+npm install grunt-purifycss --save-dev
+grunt.loadNpmTasks('grunt-purifycss');
 
-== Changelog ==
+grunt.initConfig({
+  purifycss: {
+    options: {},
+    target: {
+      src: ['test/fixtures/*.html', 'test/fixtures/*.js'],
+      css: ['test/fixtures/*.css'],
+      dest: 'tmp/purestyles.css'
+    },
+  },
+});
 
-= 1.0 - May 12 2015 =
-* Initial release
 
-== Credits ==
-
-* Based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
