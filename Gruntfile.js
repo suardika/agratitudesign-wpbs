@@ -31,10 +31,13 @@ module.exports = function(grunt) {
      * uglify task
      */
     uglify: {
-      my_script: {
+      my_target: {
+        options: {
+          sourceMap: true,
+        },
         files: {
           'dist/bootstrap.min.js': ['src/lib/bootstrap/js/bootstrap.js'],
-          'dist/telaga.min.js': ['src/lib/telaga.js']
+          'dist/telaga.min.js': ['src/telaga.js']
         } //files
       } //my_target
     }, //uglify
@@ -63,9 +66,9 @@ module.exports = function(grunt) {
           dev: {
             bsFiles: {
                 src : [
-                  'style.css',
-                  '**/*.php',
-                  'js/*.js'
+                  'dist/**/*.css',
+                  'dist/**/*.js',
+                  '**/*.php'
                 ]
             },
             options: {
@@ -80,8 +83,12 @@ module.exports = function(grunt) {
        */
     watch: {
       css: {
-        files: '**/*.scss',
+        files: 'src/**/*.scss',
         tasks: ['sass', 'autoprefixer']
+      },
+      js: {
+        files: 'src/**/*.js',
+        tasks: ['uglify']
       }
     }
 
@@ -90,9 +97,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-autoprefixer');
-  grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-
+  grunt.loadNpmTasks('grunt-browser-sync');
+  
   // define default task
-  grunt.registerTask('default', ['browserSync', 'uglify', 'watch']);
+  grunt.registerTask('default', ['browserSync', 'watch']);
 }
