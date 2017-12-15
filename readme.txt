@@ -13,6 +13,37 @@ A starter theme called agratitudesign telaga.
 
 --
 
+install node.js and install ruby
+================================
+
+cek npm and cek ruby
+
+	npm -v
+	ruby -v
+
+install grunt and sass
+
+	npm install -g grunt-cli
+	gem install sass
+
+	npm init
+
+create devDependicies:
+
+	npm install grunt --save-dev
+	npm install grunt-contrib-sass --save-dev
+	npm install grunt-contrib-watch --save-dev
+
+run grunt to run sass:
+
+	grunt
+
+terminate task by:
+
+	ctrl + c
+	y
+
+
 WEB LINK
 ========
 <!-- Bootstrap CSS -->
@@ -128,3 +159,104 @@ Default: 'anonymous'
 pass
 Type: string
 Default: '@anonymous'
+
+
+GRUNT-CSS-CLEAN
+================
+
+npm install grunt-css-clean --save-dev
+grunt.loadNpmTasks('grunt-css-clean');
+
+grunt.initConfig({
+  css_clean: {
+    options: {},
+    files: {
+      'dest/default_options': ['src/testing', 'src/123'],
+    },
+  },
+});
+
+GRUNT-CONTRIB-IMAGEMIN
+======================
+
+npm install --save-dev grunt-contrib-imagemin
+
+const mozjpeg = require('imagemin-mozjpeg');
+ 
+grunt.initConfig({
+    imagemin: {
+        static: {
+            options: {
+                optimizationLevel: 3,
+                svgoPlugins: [{removeViewBox: false}],
+                use: [mozjpeg()] // Example plugin usage 
+            },
+            files: {
+                'dist/img.png': 'src/img.png',
+                'dist/img.jpg': 'src/img.jpg',
+                'dist/img.gif': 'src/img.gif'
+            }
+        },
+        dynamic: {
+            files: [{
+                expand: true,
+                cwd: 'src/',
+                src: ['**/*.{png,jpg,gif}'],
+                dest: 'dist/'
+            }]
+        }
+    }
+});
+ 
+grunt.loadNpmTasks('grunt-contrib-imagemin');
+grunt.registerTask('default', ['imagemin']);
+
+
+---
+
+npm install grunt-contrib-sass' --save-dev
+npm install grunt-contrib-watch' --save-dev
+npm install grunt-autoprefixer' --save-dev
+npm install grunt-contrib-uglify' --save-dev
+npm install grunt-browser-sync' --save-dev
+
+npm install grunt-purifycss -g //no need
+npm install grunt-css-clean -g //no need
+npm install grunt-contrib-imagemin -g
+npm install grunt-contrib-cssmin -g
+
+npm install grunt-purifycss --save-dev
+npm install grunt-css-clean --save-dev
+npm install grunt-contrib-cssmin --save-dev
+npm install grunt-contrib-imagemin --save-dev
+
+grunt.loadNpmTasks('grunt-purifycss');
+grunt.loadNpmTasks('grunt-css-clean');
+
+
+
+---
+
+
+src:
+
+dev:
+	bootstrap.human.css
+	bootstrap.clean.css	
+	bootstrap.prefix.css
+	bootstrap.purify.css
+	
+	theme.human.css
+	theme.clean.css
+	theme.prefix.css
+	theme.purify.css
+	
+dist:
+	bootstrap.min.css
+	theme.min.css
+	
+	
+	
+
+
+
