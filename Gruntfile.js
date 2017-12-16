@@ -92,25 +92,6 @@ module.exports = function(grunt) {
     }, //uglify
 
     /**
-     * browserSync
-     */
-    browserSync: {
-      dev: {
-        bsFiles: {
-            src : [
-              '**/*.css',
-              'dist/**/*.js',
-              '**/*.php'
-            ]
-        },
-        options: {
-          watchTask: true,
-          proxy   : 'localhost/telaga'
-        }
-      }
-    },
-
-    /**
      * Watch task
      */
     watch: {
@@ -122,7 +103,26 @@ module.exports = function(grunt) {
         files: 'src/**/*.js',
         tasks: ['uglify']
       },
-    }
+    },
+
+    /**
+     * browserSync
+     */
+    browserSync: {
+      dev: {
+        bsFiles: {
+            src : [
+              '**/*.css',
+              '**/*.js',
+              '**/*.php'
+            ]
+        },
+        options: {
+          watchTask: true,
+          proxy   : 'localhost/telaga'
+        }
+      }
+    },
 
   });
   // load npm tasks
