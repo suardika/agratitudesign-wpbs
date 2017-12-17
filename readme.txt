@@ -214,11 +214,11 @@ grunt.registerTask('default', ['imagemin']);
 
 ---
 
-npm install grunt-contrib-sass' --save-dev
-npm install grunt-contrib-watch' --save-dev
-npm install grunt-autoprefixer' --save-dev
-npm install grunt-contrib-uglify' --save-dev
-npm install grunt-browser-sync' --save-dev
+npm install grunt-contrib-sass --save-dev
+npm install grunt-contrib-watch --save-dev
+npm install grunt-autoprefixer --save-dev
+npm install grunt-contrib-uglify --save-dev
+npm install grunt-browser-sync --save-dev
 
 npm install grunt-purifycss -g //no need
 npm install grunt-css-clean -g //no need
@@ -233,7 +233,8 @@ npm install grunt-contrib-imagemin --save-dev
 grunt.loadNpmTasks('grunt-purifycss');
 grunt.loadNpmTasks('grunt-css-clean');
 
-
+npm install grunt-clean --save-dev
+npm install grunt-clean -g
 
 ---
 

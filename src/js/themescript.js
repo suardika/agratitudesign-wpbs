@@ -1,4 +1,4 @@
 var ima = suardika;
 var suar = dika;
-var dika = bloqon;
+var dika = gear;
 

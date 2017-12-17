@@ -50,12 +50,12 @@ module.exports = function(grunt) {
         minify: false
       },
       target: {
-        src: ['*.html', '*.php', 'dist/*.js'], // Observed files
+        src: ['*.html', '*.php', 'assets/*.js'], // Observed files
         css: ['dev/themestyle.prefix.css'], // Take all css files into consideration
         dest: 'dev/themestyle.purify.css'// Write to this path
       },
       target2: {
-        src: ['*.html', '*.php', 'dist/*.js'], // Observed files
+        src: ['*.html', '*.php', 'assets/*.js'], // Observed files
         css: ['dev/bootstrap.prefix.css'], // Take all css files into consideration
         dest: 'dev/bootstrap-theme.purify.css'// Write to this path
       }
@@ -71,7 +71,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'dev/',
           src: ['*.purify.css'],
-          dest: 'dist/css',
+          dest: 'assets/css',
           ext: '.min.css'
         }]
       }
@@ -89,7 +89,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'src/',
           src: ['**/*.{gif,GIF,jpg,JPG,png,PNG}'],
-          dest: 'dist/img/'
+          dest: 'assets/img/'
         }]
       }
     },
@@ -104,15 +104,25 @@ module.exports = function(grunt) {
           sourceMap: true,
         },
         files: [{
-            expand: true,
-            flatten: true,
-            cwd: 'src/',
-            src: '**/*.js',
-            dest: 'dist/js/',
-            ext: '.min.js'
+          expand: true,
+          flatten: true,
+          cwd: 'src/',
+          src: '**/*.js',
+          dest: 'assets/js/',
+          ext: '.min.js'
         }]
       } //my_target
     }, //uglify
+
+    /**
+     * Clean Task
+     * Everytime you make the change the path structure
+     * you need to clean the file dest
+     * this is particular task with command grunt clean
+     */
+    clean: {
+      devassets: ['dev/*', 'assets/css/*', 'assets/js/*', 'assets/img/*', '!assets/fonts/*', '!assets/library/*']
+    },
 
     /**
      * Watch task
@@ -139,8 +149,8 @@ module.exports = function(grunt) {
       dev: {
         bsFiles: {
           src : [
-            '**/*.css',
-            '**/*.js',
+            'assets/**/*.css',
+            'assets/**/*.js',
             '**/*.php'
           ]
         },
@@ -159,9 +169,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
   
   // define default task
   grunt.registerTask('default', ['browserSync', 'watch']);
+  grunt.registerTask('move', ['clean']);
 }
