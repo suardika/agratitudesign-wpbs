@@ -14,29 +14,10 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'src/',
+          cwd: 'src/scss',
           src: ['*.scss'],
           dest: 'dev/',
           ext: '.human.css'
-        }]
-      }
-    },
-
-    /**
-     * Css Clean Task
-     * Remove duplicated css according to application priority
-     */
-    css_clean: {
-      target: {
-        options: {
-          minify: false
-        },
-        files: [{
-          expand: true,
-          cwd: 'dev/',
-          src: ['*.human.css'],
-          dest: 'dev/',
-          ext: '.clean.css'
         }]
       }
     },
@@ -54,7 +35,7 @@ module.exports = function(grunt) {
           expand: true,
           flatten: true,
           cwd: 'dev/',
-          src: ['*.clean.css'],
+          src: ['*.human.css'],
           dest: 'dev/',
           ext: '.prefix.css'
         }]    
@@ -63,16 +44,53 @@ module.exports = function(grunt) {
 
     /**
      * purifycss Task
-     */
-    
+     */    
     purifycss: {
       options: {
         minify: false
       },
       target: {
         src: ['*.html', '*.php', 'dist/*.js'], // Observed files
-        css: ['dev/*.prefix.css'], // Take all css files into consideration
-        dest: 'dev/style.purify.css', // Write to this path
+        css: ['dev/themestyle.prefix.css'], // Take all css files into consideration
+        dest: 'dev/themestyle.purify.css'// Write to this path
+      },
+      target2: {
+        src: ['*.html', '*.php', 'dist/*.js'], // Observed files
+        css: ['dev/bootstrap.prefix.css'], // Take all css files into consideration
+        dest: 'dev/bootstrap-theme.purify.css'// Write to this path
+      }
+    },
+
+    /**
+     * Css Minify Task
+     */
+    cssmin: {
+      target: {
+        options: {},
+        files: [{
+          expand: true,
+          cwd: 'dev/',
+          src: ['*.purify.css'],
+          dest: 'dist/css',
+          ext: '.min.css'
+        }]
+      }
+    },
+
+    /**
+     * imagemin Task
+     */
+    imagemin: {
+      dynamic: {
+        options: {
+          optimizationLevel: 3,
+        },
+        files: [{
+          expand: true,
+          cwd: 'src/',
+          src: ['**/*.{gif,GIF,jpg,JPG,png,PNG}'],
+          dest: 'dist/img/'
+        }]
       }
     },
 
@@ -82,12 +100,17 @@ module.exports = function(grunt) {
     uglify: {
       my_target: {
         options: {
+          banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") %> */',
           sourceMap: true,
         },
-        files: {
-          'dist/bootstrap.min.js': ['src/lib/bootstrap/js/bootstrap.js'],
-          'dist/telaga.min.js': ['src/telaga.js']
-        } //files
+        files: [{
+            expand: true,
+            flatten: true,
+            cwd: 'src/',
+            src: '**/*.js',
+            dest: 'dist/js/',
+            ext: '.min.js'
+        }]
       } //my_target
     }, //uglify
 
@@ -96,8 +119,12 @@ module.exports = function(grunt) {
      */
     watch: {
       sass: {
-        files: 'src/*.scss',
-        tasks: ['sass', 'css_clean', 'autoprefixer', 'purifycss']
+        files: 'src/**/*.scss',
+        tasks: ['sass', 'autoprefixer', 'purifycss', 'cssmin']
+      },
+      image: {
+        files: 'src/**/*.{gif,GIF,jpg,JPG,png,PNG}',
+        tasks: ['imagemin']
       },
       js: {
         files: 'src/**/*.js',
@@ -111,11 +138,11 @@ module.exports = function(grunt) {
     browserSync: {
       dev: {
         bsFiles: {
-            src : [
-              '**/*.css',
-              '**/*.js',
-              '**/*.php'
-            ]
+          src : [
+            '**/*.css',
+            '**/*.js',
+            '**/*.php'
+          ]
         },
         options: {
           watchTask: true,
@@ -123,13 +150,14 @@ module.exports = function(grunt) {
         }
       }
     },
-
   });
+
   // load npm tasks
   grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-css-clean');  
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-purifycss');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
