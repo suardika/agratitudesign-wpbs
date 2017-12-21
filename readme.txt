@@ -70,8 +70,44 @@ WEB LINK
 UPDATE GIT LATEST MASTER
 ========================
 
-git fetch origin
-git reset --hard origin/master
+git reset --hard HEAD
+git clean -xffd
+git pull
+
+
+INSTALL BOWER optional
+======================
+    npm install -g bower
+    bower.init
+    bower search bootstrap
+   
+by default : bower_components
+create file : .bowerrcc
+
+{
+    "directory": "path to the directory"
+}
+
+    bower install bootstrap
+
+bower.json
+    bower update
+    bower uninstall
+
+bower install bootstrap#v4.0.0-beta.2
+
+----
+
+NPM
+===
+
+npm install bootstrap@4.0.0-beta.2 --save
+
+npm install popper.js@1.13.0 
+
+npm install --save jquery-3.2.1.slim.min.js
+
+
 
 
 PURIFYCSS
@@ -274,8 +310,3 @@ TERMINAL.SUBLIME-SETTING
 	// null value to indicate that the environment variable should be unset.
 	"env": {}
 }
-
-	
-
-
-
