@@ -54,11 +54,6 @@ module.exports = function(grunt) {
         css: ['dev/themestyle.prefix.css'], // Take all css files into consideration
         dest: 'dev/themestyle.purify.css'// Write to this path
       },
-      target2: {
-        src: ['*.html', '*.php', 'assets/*.js'], // Observed files
-        css: ['dev/bootstrap.prefix.css'], // Take all css files into consideration
-        dest: 'dev/bootstrap-theme.purify.css'// Write to this path
-      }
     },
 
     /**
@@ -106,8 +101,8 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           flatten: true,
-          cwd: 'src/',
-          src: '**/*.js',
+          cwd: 'src/js',
+          src: '*.js',
           dest: 'assets/js/',
           ext: '.min.js'
         }]
@@ -121,7 +116,62 @@ module.exports = function(grunt) {
      * this is particular task with command grunt clean
      */
     clean: {
-      devassets: ['dev/*', 'assets/css/*', 'assets/js/*', 'assets/img/*', '!assets/fonts/*', '!assets/library/*']
+      devassets: [
+        'dev/*',
+        'assets/css/*',
+        'assets/js/*',
+        'assets/img/*',
+        'src/scss/bootstrap/*',
+        'src/js/bootstrap/*',
+        'src/js/jquery/*',
+        'src/js/popper/*',
+        '!assets/library/*'
+      ]
+    },
+
+    /**
+     * Copy Task
+     * this is second particular task
+     */
+    copy: {
+      main:{
+        files: [{
+          expand: true,
+          cwd: 'node_modules/bootstrap/scss',
+          src: '**',
+          dest: 'src/scss/bootstrap',
+        },{
+          expand: true,
+          cwd: 'node_modules/bootstrap/dist/js',
+          src: '**',
+          dest: 'src/js/bootstrap',
+        },{
+          expand: true,
+          cwd: 'node_modules/bootstrap/dist/js',
+          src: ['bootstrap.min.js','bootstrap.min.js.map'],
+          dest: 'assets/js/',
+        },{
+          expand: true,
+          cwd: 'node_modules/jquery/dist/',
+          src: '**',
+          dest: 'src/js/jquery',
+        },{
+          expand: true,
+          cwd: 'node_modules/jquery/dist/',
+          src: ['jquery.slim.min.js','jquery.slim.min.map'],
+          dest: 'assets/js/',
+        },{
+          expand: true,
+          cwd: 'node_modules/popper.js/dist/',
+          src: '**',
+          dest: 'src/js/popper/',
+        },{
+          expand: true,
+          cwd: 'node_modules/popper.js/dist/',
+          src: ['popper.min.js','popper.min.js.map'],
+          dest: 'assets/js/',
+        }]
+      }
     },
 
     /**
@@ -151,6 +201,7 @@ module.exports = function(grunt) {
           src : [
             'assets/**/*.css',
             'assets/**/*.js',
+            'assets/**/*.{gif,GIF,jpg,JPG,png,PNG}',
             '**/*.php'
           ]
         },
@@ -170,10 +221,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
   
   // define default task
   grunt.registerTask('default', ['browserSync', 'watch']);
-  grunt.registerTask('move', ['clean']);
+  grunt.registerTask('libfresh', ['clean', 'copy']);
 }

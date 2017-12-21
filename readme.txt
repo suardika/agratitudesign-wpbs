@@ -103,9 +103,9 @@ NPM
 
 npm install bootstrap@4.0.0-beta.2 --save
 
-npm install popper.js@1.13.0 
+npm install popper.js@1.12.3 --save
 
-npm install --save jquery-3.2.1.slim.min.js
+npm install jquery@3.2.1 --save
 
 
 
@@ -310,3 +310,7 @@ TERMINAL.SUBLIME-SETTING
 	// null value to indicate that the environment variable should be unset.
 	"env": {}
 }
+
+npm install grunt-contrib-copy --save-dev
+
+grunt.loadNpmTasks('grunt-contrib-copy');
