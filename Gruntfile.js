@@ -135,7 +135,12 @@ module.exports = function(grunt) {
      */
     copy: {
       main:{
-        files: [{
+        files: [
+        /**
+         * copy boostrap scss and js from npm node_modules files
+         * more complete files to src, and compres file to assets directory
+         */
+        {
           expand: true,
           cwd: 'node_modules/bootstrap/scss',
           src: '**',
@@ -150,7 +155,11 @@ module.exports = function(grunt) {
           cwd: 'node_modules/bootstrap/dist/js',
           src: ['bootstrap.min.js','bootstrap.min.js.map'],
           dest: 'assets/js/',
-        },{
+        },
+        /**
+         * copy jquery js dependency from node_modules
+         */
+        {
           expand: true,
           cwd: 'node_modules/jquery/dist/',
           src: '**',
@@ -160,7 +169,11 @@ module.exports = function(grunt) {
           cwd: 'node_modules/jquery/dist/',
           src: ['jquery.slim.min.js','jquery.slim.min.map'],
           dest: 'assets/js/',
-        },{
+        },
+        /**
+         * copy popper js dependency from node_modules
+         */
+        {
           expand: true,
           cwd: 'node_modules/popper.js/dist/',
           src: '**',
@@ -170,7 +183,32 @@ module.exports = function(grunt) {
           cwd: 'node_modules/popper.js/dist/',
           src: ['popper.min.js','popper.min.js.map'],
           dest: 'assets/js/',
-        }]
+        },
+        /**
+         * copy owl carousel js library from node_modules
+         */
+        {
+          expand: true,
+          cwd: 'node_modules/owl.carousel/dist/',
+          src: '*.js',
+          dest: 'src/js/owl.carousel/',
+        },{
+          expand: true,
+          cwd: 'node_modules/owl.carousel/dist/',
+          src: ['owl.carousel.min.js'],
+          dest: 'assets/js/',
+        },{
+          expand: true,
+          cwd: 'node_modules/owl.carousel/dist/',
+          src: '*.js',
+          dest: 'src/js/owl.carousel/',
+        },{
+          expand: true,
+          cwd: 'node_modules/owl.carousel/dist/',
+          src: ['owl.carousel.min.js'],
+          dest: 'assets/js/',
+        },
+        ]
       }
     },
 
