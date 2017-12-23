@@ -316,3 +316,5 @@ npm install grunt-contrib-copy --save-dev
 grunt.loadNpmTasks('grunt-contrib-copy');
 
 npm install owl.carousel --save
+
+npm install wow.js --save

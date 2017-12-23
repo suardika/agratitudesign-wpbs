@@ -207,6 +207,20 @@ module.exports = function(grunt) {
             return dest + src.replace(/\.css$/, ".scss");
           }
         },        
+        /**
+         * copy wow js library from node_modules
+         */
+        {
+          expand: true,
+          cwd: 'node_modules/wow.js/dist/',
+          src: '*.js',
+          dest: 'src/js/wow.js/',
+        },{
+          expand: true,
+          cwd: 'node_modules/wow.js/dist/',
+          src: ['wow.min.js', 'wow.js.map'],
+          dest: 'assets/js/',
+        },        
         ]
       }
     },
