@@ -3,111 +3,6 @@ module.exports = function(grunt) {
     grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    /**
-     * Sass Task
-     */
-    sass: {
-      target: {
-        options: {
-          style: 'expanded',
-          sourcemap: 'none',
-        },
-        files: [{
-          expand: true,
-          cwd: 'src/scss',
-          src: ['*.scss'],
-          dest: 'dev/',
-          ext: '.human.css'
-        }]
-      }
-    },
-
-    /**
-     * autoprefixer task
-     */
-    autoprefixer: {
-      target:{
-        options: {
-          browsers: ['last 2 versions', 'ie 8', 'ie 9']
-        },
-        //prefix all files
-        files: [{
-          expand: true,
-          flatten: true,
-          cwd: 'dev/',
-          src: ['*.human.css'],
-          dest: 'dev/',
-          ext: '.prefix.css'
-        }]    
-      }
-    },
-
-    /**
-     * purifycss Task
-     */    
-    purifycss: {
-      options: {
-        minify: false
-      },
-      target: {
-        src: ['*.html', '*.php', 'assets/*.js'], // Observed files
-        css: ['dev/themestyle.prefix.css'], // Take all css files into consideration
-        dest: 'dev/themestyle.purify.css'// Write to this path
-      },
-    },
-
-    /**
-     * Css Minify Task
-     */
-    cssmin: {
-      target: {
-        options: {},
-        files: [{
-          expand: true,
-          cwd: 'dev/',
-          src: ['*.purify.css'],
-          dest: 'assets/css',
-          ext: '.min.css'
-        }]
-      }
-    },
-
-    /**
-     * imagemin Task
-     */
-    imagemin: {
-      dynamic: {
-        options: {
-          optimizationLevel: 3,
-        },
-        files: [{
-          expand: true,
-          cwd: 'src/',
-          src: ['**/*.{gif,GIF,jpg,JPG,png,PNG}'],
-          dest: 'assets/img/'
-        }]
-      }
-    },
-
-    /**
-     * uglify task
-     */
-    uglify: {
-      my_target: {
-        options: {
-          banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") %> */',
-          sourceMap: true,
-        },
-        files: [{
-          expand: true,
-          flatten: true,
-          cwd: 'src/js',
-          src: '*.js',
-          dest: 'assets/js/',
-          ext: '.min.js'
-        }]
-      } //my_target
-    }, //uglify
 
     /**
      * Clean Task
@@ -119,12 +14,15 @@ module.exports = function(grunt) {
       devassets: [
         'dev/*',
         'assets/css/*',
+        '!assets/css/presets/**',
+        '!assets/css/font-awesome.min.css',
         'assets/js/*',
         'assets/img/*',
         'src/scss/bootstrap/*',
         'src/js/bootstrap/*',
         'src/js/jquery/*',
-        'src/js/popper/*',
+        'src/js/popper/*',        
+        '!assets/fonts/*',
         '!assets/xtralib/*'
       ]
     },
@@ -226,6 +124,112 @@ module.exports = function(grunt) {
     },
 
     /**
+     * uglify task
+     */
+    uglify: {
+      my_target: {
+        options: {
+          banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") %> */',
+          sourceMap: true,
+        },
+        files: [{
+          expand: true,
+          flatten: true,
+          cwd: 'src/js/',
+          src: ['theme-script.js', 'customizer.js'],
+          dest: 'assets/js/',
+          ext: '.min.js'
+        }]
+      } //my_target
+    }, //uglify
+
+    /**
+     * Sass Task
+     */
+    sass: {
+      target: {
+        options: {
+          style: 'expanded',
+          sourcemap: 'none',
+        },
+        files: [{
+          expand: true,
+          cwd: 'src/scss',
+          src: ['*.scss'],
+          dest: 'dev/',
+          ext: '.human.css'
+        }]
+      }
+    },
+
+    /**
+     * autoprefixer task
+     */
+    autoprefixer: {
+      target:{
+        options: {
+          browsers: ['last 2 versions', 'ie 8', 'ie 9']
+        },
+        //prefix all files
+        files: [{
+          expand: true,
+          flatten: true,
+          cwd: 'dev/',
+          src: ['*.human.css'],
+          dest: 'dev/',
+          ext: '.prefix.css'
+        }]    
+      }
+    },
+
+    /**
+     * purifycss Task
+     */    
+    purifycss: {
+      options: {
+        minify: false
+      },
+      target: {
+        src: ['*.html', '*.php', 'assets/*.js'], // Observed files
+        css: ['dev/themestyle.prefix.css'], // Take all css files into consideration
+        dest: 'dev/themestyle.purify.css'// Write to this path
+      },
+    },
+
+    /**
+     * Css Minify Task
+     */
+    cssmin: {
+      target: {
+        options: {},
+        files: [{
+          expand: true,
+          cwd: 'dev/',
+          src: ['*.purify.css'],
+          dest: 'assets/css',
+          ext: '.min.css'
+        }]
+      }
+    },
+
+    /**
+     * imagemin Task
+     */
+    imagemin: {
+      dynamic: {
+        options: {
+          optimizationLevel: 3,
+        },
+        files: [{
+          expand: true,
+          cwd: 'src/',
+          src: ['**/*.{gif,GIF,jpg,JPG,png,PNG}'],
+          dest: 'assets/img/'
+        }]
+      }
+    },
+
+    /**
      * Watch task
      */
     watch: {
@@ -278,5 +282,5 @@ module.exports = function(grunt) {
   
   // define default task
   grunt.registerTask('default', ['browserSync', 'watch']);
-  grunt.registerTask('libfresh', ['clean', 'copy']);
+  grunt.registerTask('refresh', ['clean', 'copy', 'uglify']);
 }
