@@ -125,7 +125,7 @@ module.exports = function(grunt) {
         'src/js/bootstrap/*',
         'src/js/jquery/*',
         'src/js/popper/*',
-        '!assets/library/*'
+        '!assets/xtralib/*'
       ]
     },
 
@@ -199,15 +199,14 @@ module.exports = function(grunt) {
           dest: 'assets/js/',
         },{
           expand: true,
-          cwd: 'node_modules/owl.carousel/dist/',
-          src: '*.js',
-          dest: 'src/js/owl.carousel/',
-        },{
-          expand: true,
-          cwd: 'node_modules/owl.carousel/dist/',
-          src: ['owl.carousel.min.js'],
-          dest: 'assets/js/',
-        },
+          dot: true,
+          cwd: 'node_modules/owl.carousel/dist/assets',
+          src: '**',
+          dest: 'src/scss/owl.carousel/',
+          rename: function(dest, src) {
+            return dest + src.replace(/\.css$/, ".scss");
+          }
+        },        
         ]
       }
     },
