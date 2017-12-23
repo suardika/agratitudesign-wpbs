@@ -2,9 +2,9 @@
 /**
  * Template part for displaying results in search pages
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package agratitudesign_telaga
+ * @package WP_Bootstrap_Starter
  */
 
 ?>
@@ -15,7 +15,7 @@
 
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php agratitudesign_posted_on(); ?>
+			<?php wp_bootstrap_starter_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
@@ -25,6 +25,6 @@
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
-		<?php agratitudesign_entry_footer(); ?>
+		<?php wp_bootstrap_starter_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+</article><!-- #post-## -->

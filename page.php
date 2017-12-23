@@ -7,54 +7,32 @@
  * and that other 'pages' on your WordPress site may use a
  * different template.
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package agratitudesign_telaga
+ * @package WP_Bootstrap_Starter
  */
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+	<section id="primary" class="content-area col-sm-12 col-md-12 col-lg-8">
+		<main id="main" class="site-main" role="main">
 
 			<?php
 			while ( have_posts() ) : the_post();
 
 				get_template_part( 'template-parts/content', 'page' );
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
+                // If comments are open or we have at least one comment, load up the comment template.
+                if ( comments_open() || get_comments_number() ) :
+                    comments_template();
+                endif;
 
 			endwhile; // End of the loop.
 			?>
 
 		</main><!-- #main -->
-	</div><!-- #primary -->
+	</section><!-- #primary -->
 
 <?php
 get_sidebar();
 get_footer();
-
-// please remove after this
-
-//    <!-- Bootstrap CSS -->
-//    <link rel="stylesheet" href="css/bootstrap.min.css">
-//    <!-- Owl Carosel -->
-//    <link rel="stylesheet" href="css/owl.carousel.min.css">
-//    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-
-//    <link rel="stylesheet" href="css/font-awesome.min.css">
-//    <link rel="stylesheet" href="css/animate.css">
-//    <link rel="stylesheet" href="css/venobox.css">
-// <link rel="stylesheet" href="css/style.css">
-
-// <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-// <script src="js/jquery.min.js"></script>
-// <script src="js/popper.min.js"></script>
-// <script src="js/bootstrap.min.js"></script>
-// <!-- All Plugin js -->
-// <script src="js/plugin.min.js"></script>
-// <!-- Custom js -->
-// <script src="js/custom.js"></script>

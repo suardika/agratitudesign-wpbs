@@ -7,15 +7,15 @@
  * It is used to display a page when nothing more specific matches a query.
  * E.g., it puts together the home page when no home.php file exists.
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package agratitudesign_telaga
+ * @package WP_Bootstrap_Starter
  */
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+	<section id="primary" class="content-area col-sm-12 col-md-12 col-lg-8">
+		<main id="main" class="site-main" role="main">
 
 		<?php
 		if ( have_posts() ) :
@@ -49,7 +49,7 @@ get_header(); ?>
 		endif; ?>
 
 		</main><!-- #main -->
-	</div><!-- #primary -->
+	</section><!-- #primary -->
 
 <?php
 get_sidebar();

@@ -4,22 +4,19 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package agratitudesign_telaga
+ * @package WP_Bootstrap_Starter
  */
 
 get_header(); ?>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main">
+	<section id="primary" class="content-area col-sm-12 col-md-12 col-lg-8">
+		<main id="main" class="site-main" role="main">
 
 		<?php
 		if ( have_posts() ) : ?>
 
 			<header class="page-header">
-				<h1 class="page-title"><?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'agratitudesign' ), '<span>' . get_search_query() . '</span>' );
-				?></h1>
+				<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'wp-bootstrap-starter' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 			</header><!-- .page-header -->
 
 			<?php
