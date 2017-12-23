@@ -119,6 +119,15 @@ module.exports = function(grunt) {
           src: ['wow.min.js', 'wow.js.map'],
           dest: 'assets/js/',
         },        
+        /**
+         * copy html 5 js library from src
+         */
+        {
+          expand: true,
+          cwd: 'src/js/',
+          src: ['html5.js'],
+          dest: 'assets/js/'
+        },        
         ]
       }
     },
