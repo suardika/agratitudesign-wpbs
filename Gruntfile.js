@@ -15,14 +15,13 @@ module.exports = function(grunt) {
         'dev/*',
         'assets/css/*',
         '!assets/css/presets/**',
-        '!assets/css/font-awesome.min.css',
         'assets/js/*',
         'assets/img/*',
         'src/scss/bootstrap/*',
         'src/js/bootstrap/*',
         'src/js/jquery/*',
         'src/js/popper/*',        
-        '!assets/fonts/*',
+        'assets/fonts/*',
         '!assets/xtralib/*'
       ]
     },
@@ -127,7 +126,31 @@ module.exports = function(grunt) {
           cwd: 'src/js/',
           src: ['html5.js'],
           dest: 'assets/js/'
-        },        
+        },
+        /**
+         * copy font-awesome library from node_modules
+         */
+        {
+          expand: true,
+          cwd: 'node_modules/font-awesome/fonts/',
+          src: '**',
+          dest: 'src/fonts/',
+        },{
+          expand: true,
+          cwd: 'node_modules/font-awesome/fonts/',
+          src: '**',
+          dest: 'assets/fonts/',
+        },{
+          expand: true,
+          cwd: 'node_modules/font-awesome/scss/',
+          src: ['**'],
+          dest: 'src/scss/font-awesome/',
+        },{
+          expand: true,
+          cwd: 'node_modules/font-awesome/css/',
+          src: ['font-awesome.min.css', 'font-awesome.css.map'],
+          dest: 'assets/css/',
+        },    
         ]
       }
     },

@@ -318,3 +318,5 @@ grunt.loadNpmTasks('grunt-contrib-copy');
 npm install owl.carousel --save
 
 npm install wow.js --save
+
+npm install font-awesome --save
