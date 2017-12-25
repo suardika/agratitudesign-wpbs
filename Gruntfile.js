@@ -184,13 +184,21 @@ module.exports = function(grunt) {
           style: 'expanded',
           sourcemap: 'none',
         },
-        files: [{
+        files: [
+        {
           expand: true,
           cwd: 'src/scss',
-          src: ['*.scss'],
+          src: ['themestyle.scss'],
           dest: 'dev/',
           ext: '.human.css'
-        }]
+        },{
+          expand: true,
+          cwd: 'src/scss/bootstrap',
+          src: ['bootstrap.scss'],
+          dest: 'dev/',
+          ext: '.human.css'
+        },
+        ]
       }
     },
 
@@ -222,9 +230,14 @@ module.exports = function(grunt) {
         minify: false
       },
       target: {
-        src: ['*.html', '*.php', 'assets/*.js'], // Observed files
+        src: ['*.html', '**/*.php', 'assets/**.js'], // Observed files
         css: ['dev/themestyle.prefix.css'], // Take all css files into consideration
         dest: 'dev/themestyle.purify.css'// Write to this path
+      },
+      target2: {
+        src: ['*.html', '**/*.php', 'assets/**.js'], // Observed files
+        css: ['dev/bootstrap.prefix.css'], // Take all css files into consideration
+        dest: 'dev/bootstrap.purify.css'// Write to this path
       },
     },
 

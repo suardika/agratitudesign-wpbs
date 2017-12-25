@@ -5,14 +5,24 @@
  * @package agratitudesign_telaga
  */
 
+    // // load bootstrap css
+    // wp_enqueue_style( 'wp-bootstrap-starter-bootstrap-css', get_template_directory_uri() . '/assets/css/bootstrap.min.css' );
+    // // load bootstrap css
+    // wp_enqueue_style( 'wp-bootstrap-starter-font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css' );
+    // // load AItheme styles
+    // // load WP Bootstrap Starter styles
+    // wp_enqueue_style( 'themestyle-css', get_template_directory_uri() . '/assets/css/themestyle.min.css' ); 
+    // // wp_enqueue_style( 'wp-bootstrap-starter-style', get_stylesheet_uri() );
+
 function wp_bootstrap_starter_scripts() {
 	// load bootstrap css
-	wp_enqueue_style( 'wp-bootstrap-starter-bootstrap-css', get_template_directory_uri() . '/inc/assets/css/bootstrap.min.css' );
+	wp_enqueue_style( 'wp-bootstrap-starter-bootstrap-css', get_template_directory_uri() . '/dev/bootstrap.purify.css' );
 	// load bootstrap css
 	wp_enqueue_style( 'wp-bootstrap-starter-font-awesome', get_template_directory_uri() . '/inc/assets/css/font-awesome.min.css', false, '4.1.0' );
 	// load AItheme styles
 	// load WP Bootstrap Starter styles
-	wp_enqueue_style( 'wp-bootstrap-starter-style', get_stylesheet_uri() );
+    wp_enqueue_style( 'themestyle-css', get_template_directory_uri() . '/assets/css/themestyle.min.css' );  
+	// wp_enqueue_style( 'wp-bootstrap-starter-style', get_stylesheet_uri() );
     if(get_theme_mod( 'preset_style_setting' ) === 'poppins-lora') {
         wp_enqueue_style( 'wp-bootstrap-starter-poppins-lora-font', '//fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Poppins:300,400,500,600,700' );
     }
