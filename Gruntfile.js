@@ -340,9 +340,13 @@ module.exports = function(grunt) {
         files: 'src/theme-script.js',
         tasks: ['uglify']
       }, 
-      sass: {
+      scss: {
         files: 'src/**/*.scss',
         tasks: ['sass', 'autoprefixer', 'purifycss', 'cssmin']
+      },
+      css: {
+        files: 'src/**/*.css',
+        tasks: ['copy', 'autoprefixer', 'purifycss', 'cssmin']
       },
       image: {
         files: 'src/img/**/*.{gif,GIF,jpg,JPG,png,PNG}',
