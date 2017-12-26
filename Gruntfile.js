@@ -29,29 +29,24 @@ module.exports = function(grunt) {
     /**
      * Copy Task
      * this is second particular task
+     * copying node_modules files to src
      */
     copy: {
       main:{
         files: [
         /**
-         * copy boostrap scss and js from npm node_modules files
-         * more complete files to src, and compres file to assets directory
+         * copy bootstrap from node_modules to src
          */
         {
           expand: true,
           cwd: 'node_modules/bootstrap/scss',
           src: '**',
-          dest: 'src/scss/bootstrap',
+          dest: 'src/bootstrap/scss',
         },{
           expand: true,
           cwd: 'node_modules/bootstrap/dist/js',
           src: '**',
-          dest: 'src/js/bootstrap',
-        },{
-          expand: true,
-          cwd: 'node_modules/bootstrap/dist/js',
-          src: ['bootstrap.min.js','bootstrap.min.js.map'],
-          dest: 'assets/js/',
+          dest: 'src/bootstrap/js',
         },
         /**
          * copy jquery js dependency from node_modules
@@ -60,12 +55,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'node_modules/jquery/dist/',
           src: '**',
-          dest: 'src/js/jquery',
-        },{
-          expand: true,
-          cwd: 'node_modules/jquery/dist/',
-          src: ['jquery.slim.min.js','jquery.slim.min.map'],
-          dest: 'assets/js/',
+          dest: 'src/jquery',
         },
         /**
          * copy popper js dependency from node_modules
@@ -73,13 +63,8 @@ module.exports = function(grunt) {
         {
           expand: true,
           cwd: 'node_modules/popper.js/dist/',
-          src: '**',
-          dest: 'src/js/popper/',
-        },{
-          expand: true,
-          cwd: 'node_modules/popper.js/dist/',
-          src: ['popper.min.js','popper.min.js.map'],
-          dest: 'assets/js/',
+          src: '*',
+          dest: 'src/popper/',
         },
         /**
          * copy owl carousel js library from node_modules
@@ -88,45 +73,32 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'node_modules/owl.carousel/dist/',
           src: '*.js',
-          dest: 'src/js/owl.carousel/',
+          dest: 'src/owl.carousel/js',
         },{
           expand: true,
-          cwd: 'node_modules/owl.carousel/dist/',
-          src: ['owl.carousel.min.js'],
-          dest: 'assets/js/',
-        },{
-          expand: true,
-          dot: true,
           cwd: 'node_modules/owl.carousel/dist/assets',
           src: '**',
-          dest: 'src/scss/owl.carousel/',
-          rename: function(dest, src) {
-            return dest + src.replace(/\.css$/, ".scss");
-          }
-        },        
+          dest: 'src/owl.carousel/css',
+        },{
+          expand: true,
+          cwd: 'node_modules/owl.carousel/src/scss',
+          src: '**',
+          dest: 'src/owl.carousel/scss',
+        },{
+          expand: true,
+          cwd: 'node_modules/owl.carousel/src/img',
+          src: '**',
+          dest: 'src/owl.carousel/img',
+        },     
         /**
          * copy wow js library from node_modules
          */
         {
           expand: true,
           cwd: 'node_modules/wow.js/dist/',
-          src: '*.js',
-          dest: 'src/js/wow.js/',
-        },{
-          expand: true,
-          cwd: 'node_modules/wow.js/dist/',
-          src: ['wow.min.js', 'wow.js.map'],
-          dest: 'assets/js/',
+          src: '**',
+          dest: 'src/wow.js/',
         },        
-        /**
-         * copy html 5 js library from src
-         */
-        {
-          expand: true,
-          cwd: 'src/js/',
-          src: ['html5.js'],
-          dest: 'assets/js/'
-        },
         /**
          * copy font-awesome library from node_modules
          */
@@ -134,7 +106,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'node_modules/font-awesome/fonts/',
           src: '**',
-          dest: 'src/fonts/',
+          dest: 'src/font-awesome/fonts/',
         },{
           expand: true,
           cwd: 'node_modules/font-awesome/fonts/',
@@ -142,38 +114,78 @@ module.exports = function(grunt) {
           dest: 'assets/fonts/',
         },{
           expand: true,
-          cwd: 'node_modules/font-awesome/scss/',
-          src: ['**'],
-          dest: 'src/scss/font-awesome/',
-        },{
-          expand: true,
           cwd: 'node_modules/font-awesome/css/',
-          src: ['font-awesome.min.css', 'font-awesome.css.map'],
-          dest: 'assets/css/',
+          src: '**',
+          dest: 'src/font-awesome/css/',
         },    
         ]
-      }
-    },
-
-    /**
-     * uglify task
-     */
-    uglify: {
-      my_target: {
-        options: {
-          banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") %> */',
-          sourceMap: true,
-        },
-        files: [{
+      },
+      js:{
+        files: [
+        {
           expand: true,
-          flatten: true,
-          cwd: 'src/js/',
-          src: ['theme-script.js', 'customizer.js'],
+          cwd: 'src/bootstrap/js',
+          src: ['bootstrap.min.js'],
           dest: 'assets/js/',
-          ext: '.min.js'
-        }]
-      } //my_target
-    }, //uglify
+        },{
+          expand: true,
+          cwd: 'src/jquery/',
+          src: ['jquery.slim.min.js'],
+          dest: 'assets/js/',
+        },{
+          expand: true,
+          cwd: 'src/owl.carousel/js',
+          src: ['owl.carousel.min.js'],
+          dest: 'assets/js/',
+        },{
+          expand: true,
+          cwd: 'src/popper/',
+          src: ['popper.min.js'],
+          dest: 'assets/js/',
+        },{
+          expand: true,
+          cwd: 'src/wow.js/',
+          src: ['wow.min.js'],
+          dest: 'assets/js/',
+        },{
+          expand: true,
+          cwd: 'src/',
+          src: ['customizer.js'],
+          dest: 'assets/js/',
+        },{
+          expand: true,
+          cwd: 'src/',
+          src: ['html5.js'],
+          dest: 'assets/js/',
+        },{
+          expand: true,
+          cwd: 'src/',
+          src: ['skip-link-focus-fix.js'],
+          dest: 'assets/js/',
+        },
+        ]
+      },
+      css:{
+        files: [
+        {
+          expand: true,
+          cwd: 'src/font-awesome/css',
+          src: ['font-awesome.css'],
+          dest: 'dev/css/',
+        },{
+          expand: true,
+          cwd: 'src/owl.carousel/css',
+          src: ['owl.carousel.css'],
+          dest: 'dev/css/',
+        },{
+          expand: true,
+          cwd: 'src/owl.carousel/css',
+          src: ['owl.theme.default.css'],
+          dest: 'dev/css/',
+        },
+        ]
+      },
+    },
 
     /**
      * Sass Task
@@ -187,16 +199,16 @@ module.exports = function(grunt) {
         files: [
         {
           expand: true,
-          cwd: 'src/scss',
-          src: ['themestyle.scss'],
-          dest: 'dev/',
-          ext: '.human.css'
+          cwd: 'src/bootstrap/scss',
+          src: ['bootstrap.scss'],
+          dest: 'dev/css',
+          ext: '.css'
         },{
           expand: true,
-          cwd: 'src/scss/bootstrap',
-          src: ['bootstrap.scss'],
-          dest: 'dev/',
-          ext: '.human.css'
+          cwd: 'src/',
+          src: ['themestyle.scss'],
+          dest: 'dev/css',
+          ext: '.css'
         },
         ]
       }
@@ -211,16 +223,46 @@ module.exports = function(grunt) {
           browsers: ['last 2 versions', 'ie 8', 'ie 9']
         },
         //prefix all files
+        files: [
+        {
+          expand: true,
+          flatten: true,
+          cwd: 'dev/css',
+          src: [
+                'bootstrap.css',
+                'themestyle.css',
+                'font-awesome.css',
+                'owl.carousel.css',
+                'owl.theme.default.css'
+              ],
+          dest: 'dev/css',
+          ext: '.prefix.css',
+          extDot: 'last'
+        },
+        ]    
+      }
+    },
+
+    /**
+     * uglify task
+     */
+    uglify: {
+      my_target: {
+        options: {
+          banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") %> */',
+          sourceMap: false,
+        },
         files: [{
           expand: true,
           flatten: true,
-          cwd: 'dev/',
-          src: ['*.human.css'],
-          dest: 'dev/',
-          ext: '.prefix.css'
-        }]    
-      }
-    },
+          cwd: 'src/',
+          src: ['theme-script.js',],
+          dest: 'assets/js/',
+          ext: '.min.js',
+          extDot: 'last'
+        }]
+      } //my_target
+    }, //uglify
 
     /**
      * purifycss Task
@@ -230,14 +272,29 @@ module.exports = function(grunt) {
         minify: false
       },
       target: {
-        src: ['**/*.php', 'assets/**/*.js'], // Observed files
-        css: ['dev/themestyle.prefix.css'], // Take all css files into consideration
-        dest: 'dev/themestyle.purify.css'// Write to this path
+        src: ['**/*.php', 'assets/js/*.js'], // Observed files
+        css: ['dev/css/themestyle.prefix.css'], // Take all css files into consideration
+        dest: 'dev/css/themestyle.purify.css'// Write to this path
       },
       target2: {
-        src: ['**/*.php', 'assets/**/*.js'], // Observed files
-        css: ['dev/bootstrap.human.css'], // Take all css files into consideration
-        dest: 'dev/bootstrap.purify.css'// Write to this path
+        src: ['**/*.php', 'assets/js/*.js'], // Observed files
+        css: ['dev/css/bootstrap.prefix.css'], // Take all css files into consideration
+        dest: 'dev/css/bootstrap.purify.css'// Write to this path
+      },
+      target3: {
+        src: ['**/*.php', 'assets/js/*.js'], // Observed files
+        css: ['dev/css/font-awesome.prefix.css'], // Take all css files into consideration
+        dest: 'dev/css/font-awesome.purify.css'// Write to this path
+      },
+      target4: {
+        src: ['**/*.php', 'assets/js/*.js'], // Observed files
+        css: ['dev/css/owl.carousel.prefix.css'], // Take all css files into consideration
+        dest: 'dev/css/owl.carousel.purify.css'// Write to this path
+      },
+      target5: {
+        src: ['**/*.php', 'assets/js/*.js'], // Observed files
+        css: ['dev/css/owl.theme.default.prefix.css'], // Take all css files into consideration
+        dest: 'dev/css/owl.theme.default.purify.css'// Write to this path
       },
     },
 
@@ -249,10 +306,11 @@ module.exports = function(grunt) {
         options: {},
         files: [{
           expand: true,
-          cwd: 'dev/',
+          cwd: 'dev/css',
           src: ['*.purify.css'],
           dest: 'assets/css',
-          ext: '.min.css'
+          ext: '.min.css',
+          extDot: 'last'
         }]
       }
     },
@@ -267,7 +325,7 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'src/',
+          cwd: 'src/img',
           src: ['**/*.{gif,GIF,jpg,JPG,png,PNG}'],
           dest: 'assets/img/'
         }]
@@ -278,18 +336,19 @@ module.exports = function(grunt) {
      * Watch task
      */
     watch: {
+      js: {
+        files: 'src/theme-script.js',
+        tasks: ['uglify']
+      }, 
       sass: {
         files: 'src/**/*.scss',
         tasks: ['sass', 'autoprefixer', 'purifycss', 'cssmin']
       },
       image: {
-        files: 'src/**/*.{gif,GIF,jpg,JPG,png,PNG}',
+        files: 'src/img/**/*.{gif,GIF,jpg,JPG,png,PNG}',
         tasks: ['imagemin']
       },
-      js: {
-        files: 'src/**/*.js',
-        tasks: ['uglify']
-      },
+
     },
 
     /**
@@ -327,5 +386,20 @@ module.exports = function(grunt) {
   
   // define default task
   grunt.registerTask('default', ['browserSync', 'watch']);
-  grunt.registerTask('refresh', ['clean', 'copy', 'uglify']);
+
+  grunt.registerTask('copy-all', ['copy']);
+  grunt.registerTask('copy-js', ['copy:js']);
+  grunt.registerTask('copy-css', ['copy:css']);
+
+  grunt.registerTask('refresh', [
+      'clean',
+      'copy-all',
+      'sass',
+      'autoprefixer',
+      'uglify',
+      'purifycss',
+      'cssmin',
+      'imagemin',
+    ]);
 }
+

@@ -74,6 +74,12 @@ git reset --hard HEAD
 git clean -xffd
 git pull
 
+git fetch origin
+git reset --hard origin/master
+
+rm -rf [project_folder]
+git clone [remote_repo]
+
 
 INSTALL BOWER optional
 ======================
