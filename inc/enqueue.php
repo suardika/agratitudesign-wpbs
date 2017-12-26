@@ -16,7 +16,7 @@
 
 function wp_bootstrap_starter_scripts() {
 	// load bootstrap css
-	wp_enqueue_style( 'wp-bootstrap-starter-bootstrap-css', get_template_directory_uri() . '/dev/bootstrap.purify.css' );
+	wp_enqueue_style( 'wp-bootstrap-starter-bootstrap-css', get_template_directory_uri() . '/assets/css/bootstrap.min.css' );
 	// load bootstrap css
 	wp_enqueue_style( 'wp-bootstrap-starter-font-awesome', get_template_directory_uri() . '/inc/assets/css/font-awesome.min.css', false, '4.1.0' );
 	// load AItheme styles

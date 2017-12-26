@@ -230,13 +230,13 @@ module.exports = function(grunt) {
         minify: false
       },
       target: {
-        src: ['*.html', '**/*.php', 'assets/**.js'], // Observed files
+        src: ['**/*.php', 'assets/**/*.js'], // Observed files
         css: ['dev/themestyle.prefix.css'], // Take all css files into consideration
         dest: 'dev/themestyle.purify.css'// Write to this path
       },
       target2: {
-        src: ['*.html', '**/*.php', 'assets/**.js'], // Observed files
-        css: ['dev/bootstrap.prefix.css'], // Take all css files into consideration
+        src: ['**/*.php', 'assets/**/*.js'], // Observed files
+        css: ['dev/bootstrap.human.css'], // Take all css files into consideration
         dest: 'dev/bootstrap.purify.css'// Write to this path
       },
     },
