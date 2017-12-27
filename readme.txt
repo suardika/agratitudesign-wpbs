@@ -326,3 +326,10 @@ npm install owl.carousel --save
 npm install wow.js --save
 
 npm install font-awesome --save
+
+npm install animate.css --save
+
+npm install superfish --save
+
+npm install jquery.easing --save
+

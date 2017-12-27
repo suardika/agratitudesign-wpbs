@@ -17,12 +17,11 @@ module.exports = function(grunt) {
         '!assets/css/presets/**',
         'assets/js/*',
         'assets/img/*',
-        'src/scss/bootstrap/*',
-        'src/js/bootstrap/*',
-        'src/js/jquery/*',
-        'src/js/popper/*',        
         'assets/fonts/*',
-        '!assets/xtralib/*'
+        'src/*',     
+        '!src/img',
+        '!src/*.js',
+        '!src/*.scss',     
       ]
     },
 
@@ -63,7 +62,7 @@ module.exports = function(grunt) {
         {
           expand: true,
           cwd: 'node_modules/popper.js/dist/',
-          src: '*',
+          src: '**',
           dest: 'src/popper/',
         },
         /**
@@ -73,22 +72,22 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'node_modules/owl.carousel/dist/',
           src: '*.js',
-          dest: 'src/owl.carousel/js',
+          dest: 'src/owl-carousel/js',
         },{
           expand: true,
           cwd: 'node_modules/owl.carousel/dist/assets',
           src: '**',
-          dest: 'src/owl.carousel/css',
+          dest: 'src/owl-carousel/css',
         },{
           expand: true,
           cwd: 'node_modules/owl.carousel/src/scss',
           src: '**',
-          dest: 'src/owl.carousel/scss',
+          dest: 'src/owl-carousel/scss',
         },{
           expand: true,
           cwd: 'node_modules/owl.carousel/src/img',
           src: '**',
-          dest: 'src/owl.carousel/img',
+          dest: 'src/owl-carousel/img',
         },     
         /**
          * copy wow js library from node_modules
@@ -97,7 +96,25 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'node_modules/wow.js/dist/',
           src: '**',
-          dest: 'src/wow.js/',
+          dest: 'src/wow-js/',
+        },
+        /**
+         * copy superfish library from node_modules
+         */
+        {
+          expand: true,
+          cwd: 'node_modules/superfish/dist/',
+          src: '**',
+          dest: 'src/superfish/',
+        },
+        /**
+         * copy jquery.easing library from node_modules
+         */
+        {
+          expand: true,
+          cwd: 'node_modules/jquery.easing/',
+          src: '*.js',
+          dest: 'src/jquery-easing/',
         },        
         /**
          * copy font-awesome library from node_modules
@@ -117,7 +134,16 @@ module.exports = function(grunt) {
           cwd: 'node_modules/font-awesome/css/',
           src: '**',
           dest: 'src/font-awesome/css/',
-        },    
+        }, 
+        /**
+         * copy animate.css library from node_modules
+         */
+        {
+          expand: true,
+          cwd: 'node_modules/animate.css/',
+          src: ['animate.css', 'animate.min.css'],
+          dest: 'src/animate.css/',
+        }, 
         ]
       },
       js:{
@@ -125,7 +151,7 @@ module.exports = function(grunt) {
         {
           expand: true,
           cwd: 'src/bootstrap/js',
-          src: ['bootstrap.min.js'],
+          src: ['bootstrap.bundle.min.js'],
           dest: 'assets/js/',
         },{
           expand: true,
@@ -134,7 +160,7 @@ module.exports = function(grunt) {
           dest: 'assets/js/',
         },{
           expand: true,
-          cwd: 'src/owl.carousel/js',
+          cwd: 'src/owl-carousel/js',
           src: ['owl.carousel.min.js'],
           dest: 'assets/js/',
         },{
@@ -144,8 +170,18 @@ module.exports = function(grunt) {
           dest: 'assets/js/',
         },{
           expand: true,
-          cwd: 'src/wow.js/',
+          cwd: 'src/wow-js/',
           src: ['wow.min.js'],
+          dest: 'assets/js/',
+        },{
+          expand: true,
+          cwd: 'src/superfish/js',
+          src: ['superfish.min.js'],
+          dest: 'assets/js/',
+        },{
+          expand: true,
+          cwd: 'src/jquery-easing/',
+          src: ['jquery.easing.min.js'],
           dest: 'assets/js/',
         },{
           expand: true,
@@ -174,13 +210,18 @@ module.exports = function(grunt) {
           dest: 'dev/css/',
         },{
           expand: true,
-          cwd: 'src/owl.carousel/css',
+          cwd: 'src/owl-carousel/css',
           src: ['owl.carousel.css'],
           dest: 'dev/css/',
         },{
           expand: true,
-          cwd: 'src/owl.carousel/css',
+          cwd: 'src/owl-carousel/css',
           src: ['owl.theme.default.css'],
+          dest: 'dev/css/',
+        },{
+          expand: true,
+          cwd: 'src/animate.css/',
+          src: ['animate.css'],
           dest: 'dev/css/',
         },
         ]
@@ -233,7 +274,8 @@ module.exports = function(grunt) {
                 'themestyle.css',
                 'font-awesome.css',
                 'owl.carousel.css',
-                'owl.theme.default.css'
+                'owl.theme.default.css',
+                'animate.css',
               ],
           dest: 'dev/css',
           ext: '.prefix.css',
@@ -282,7 +324,7 @@ module.exports = function(grunt) {
         dest: 'dev/css/bootstrap.purify.css'// Write to this path
       },
       target3: {
-        src: ['**/*.php', 'assets/js/*.js'], // Observed files
+        src: ['**/*.php'], // Observed files
         css: ['dev/css/font-awesome.prefix.css'], // Take all css files into consideration
         dest: 'dev/css/font-awesome.purify.css'// Write to this path
       },
@@ -295,6 +337,11 @@ module.exports = function(grunt) {
         src: ['**/*.php', 'assets/js/*.js'], // Observed files
         css: ['dev/css/owl.theme.default.prefix.css'], // Take all css files into consideration
         dest: 'dev/css/owl.theme.default.purify.css'// Write to this path
+      },
+      target5: {
+        src: ['**/*.php'], // Observed files
+        css: ['dev/css/animate.prefix.css'], // Take all css files into consideration
+        dest: 'dev/css/animate.purify.css'// Write to this path
       },
     },
 
@@ -404,6 +451,16 @@ module.exports = function(grunt) {
       'purifycss',
       'cssmin',
       'imagemin',
-    ]);
+  ]);
+
+  grunt.registerTask('add', [
+      'copy-all',
+      'autoprefixer',
+      'uglify',
+      'purifycss',
+      'cssmin',
+      'imagemin',
+  ]);
+
 }
 
