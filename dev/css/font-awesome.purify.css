@@ -47,11 +47,6 @@
   font-size: 5em;
 }
 
-.fa-fw {
-  width: 1.28571429em;
-  text-align: center;
-}
-
 .fa-ul {
   padding-left: 0;
   margin-left: 2.14285714em;
@@ -74,21 +69,27 @@
   left: -1.85714286em;
 }
 
-.fa-border {
-  padding: .2em .25em .15em;
-  border: solid 0.08em #eeeeee;
-  border-radius: .1em;
-}
-
 .fa-pull-left {
   float: left;
+}
+
+.fa-pull-right {
+  float: right;
 }
 
 .fa.fa-pull-left {
   margin-right: .3em;
 }
 
+.fa.fa-pull-right {
+  margin-left: .3em;
+}
+
 /* Deprecated as of 4.4.0 */
+
+.pull-right {
+  float: right;
+}
 
 .pull-left {
   float: left;
@@ -96,6 +97,10 @@
 
 .fa.pull-left {
   margin-right: .3em;
+}
+
+.fa.pull-right {
+  margin-left: .3em;
 }
 
 @keyframes fa-spin {
@@ -131,16 +136,12 @@
   content: "\f00c";
 }
 
-.fa-remove:before,.fa-close:before,.fa-times:before {
+.fa-remove:before,.fa-times:before {
   content: "\f00d";
 }
 
 .fa-home:before {
   content: "\f015";
-}
-
-.fa-file-o:before {
-  content: "\f016";
 }
 
 .fa-repeat:before {
@@ -149,10 +150,6 @@
 
 .fa-refresh:before {
   content: "\f021";
-}
-
-.fa-list-alt:before {
-  content: "\f022";
 }
 
 .fa-tag:before {
@@ -207,6 +204,14 @@
   content: "\f075";
 }
 
+.fa-folder:before {
+  content: "\f07b";
+}
+
+.fa-folder-open:before {
+  content: "\f07c";
+}
+
 .fa-key:before {
   content: "\f084";
 }
@@ -217,10 +222,6 @@
 
 .fa-upload:before {
   content: "\f093";
-}
-
-.fa-bookmark-o:before {
-  content: "\f097";
 }
 
 .fa-github:before {
@@ -243,7 +244,11 @@
   content: "\f0c1";
 }
 
-.fa-copy:before,.fa-files-o:before {
+.fa-cloud:before {
+  content: "\f0c2";
+}
+
+.fa-copy:before {
   content: "\f0c5";
 }
 
@@ -255,12 +260,12 @@
   content: "\f0ca";
 }
 
-.fa-table:before {
-  content: "\f0ce";
+.fa-list-ol:before {
+  content: "\f0cb";
 }
 
-.fa-caret-down:before {
-  content: "\f0d7";
+.fa-table:before {
+  content: "\f0ce";
 }
 
 .fa-caret-up:before {
@@ -271,48 +276,24 @@
   content: "\f0d9";
 }
 
+.fa-caret-right:before {
+  content: "\f0da";
+}
+
 .fa-dashboard:before {
   content: "\f0e4";
 }
 
-.fa-comment-o:before {
-  content: "\f0e5";
-}
-
-.fa-comments-o:before {
-  content: "\f0e6";
+.fa-cloud-upload:before {
+  content: "\f0ee";
 }
 
 .fa-user-md:before {
   content: "\f0f0";
 }
 
-.fa-file-text-o:before {
-  content: "\f0f6";
-}
-
-.fa-building-o:before {
-  content: "\f0f7";
-}
-
-.fa-angle-left:before {
-  content: "\f104";
-}
-
-.fa-angle-up:before {
-  content: "\f106";
-}
-
-.fa-angle-down:before {
-  content: "\f107";
-}
-
 .fa-reply:before {
   content: "\f112";
-}
-
-.fa-github-alt:before {
-  content: "\f113";
 }
 
 .fa-code:before {
@@ -327,10 +308,6 @@
   content: "\f129";
 }
 
-.fa-maxcdn:before {
-  content: "\f136";
-}
-
 .fa-html5:before {
   content: "\f13b";
 }
@@ -339,12 +316,12 @@
   content: "\f13c";
 }
 
-.fa-toggle-down:before {
-  content: "\f150";
-}
-
 .fa-toggle-up:before {
   content: "\f151";
+}
+
+.fa-toggle-right:before {
+  content: "\f152";
 }
 
 .fa-file:before {
@@ -383,20 +360,12 @@
   content: "\f1ae";
 }
 
-.fa-file-image-o:before {
-  content: "\f1c5";
-}
-
-.fa-file-archive-o:before {
-  content: "\f1c6";
-}
-
-.fa-file-code-o:before {
-  content: "\f1c9";
-}
-
 .fa-support:before {
   content: "\f1cd";
+}
+
+.fa-send:before {
+  content: "\f1d8";
 }
 
 .fa-header:before {
@@ -439,20 +408,8 @@
   content: "\f2bb";
 }
 
-.fa-vcard-o:before {
-  content: "\f2bc";
-}
-
-.fa-user-o:before {
-  content: "\f2c0";
-}
-
 .fa-id-card:before {
   content: "\f2c2";
-}
-
-.fa-id-card-o:before {
-  content: "\f2c3";
 }
 
 .fa-s15:before {

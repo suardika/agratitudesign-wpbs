@@ -1,13 +1,13 @@
 <?php
 /**
- * WP Bootstrap Starter functions and definitions
+ * Agratitudesign WPBS4 functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package WP_Bootstrap_Starter
+ * @package Agratitudesign WPBS4
  */
 
-if ( ! function_exists( 'wp_bootstrap_starter_setup' ) ) :
+if ( ! function_exists( 'agratitudesign_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -15,14 +15,14 @@ if ( ! function_exists( 'wp_bootstrap_starter_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function wp_bootstrap_starter_setup() {
+function agratitudesign_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on WP Bootstrap Starter, use a find and replace
-	 * to change 'wp-bootstrap-starter' to the name of your theme in all the template files.
+	 * If you're building a theme based on Agratitudesign WPBS4, use a find and replace
+	 * to change 'agratitudesign' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'wp-bootstrap-starter', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'agratitudesign', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -44,7 +44,7 @@ function wp_bootstrap_starter_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary', 'wp-bootstrap-starter' ),
+		'primary' => esc_html__( 'Primary', 'agratitudesign' ),
 	) );
 
 	/*
@@ -52,6 +52,7 @@ function wp_bootstrap_starter_setup() {
 	 * to output valid HTML5.
 	 */
 	add_theme_support( 'html5', array(
+		'search-form',
 		'comment-form',
 		'comment-list',
 		'gallery',
@@ -59,22 +60,16 @@ function wp_bootstrap_starter_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'wp_bootstrap_starter_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'agratitudesign_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
 
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
-
-    function wp_boostrap_starter_add_editor_styles() {
-        add_editor_style( 'custom-editor-style.css' );
-    }
-    add_action( 'admin_init', 'wp_boostrap_starter_add_editor_styles' );
-
 }
 endif;
-add_action( 'after_setup_theme', 'wp_bootstrap_starter_setup' );
+add_action( 'after_setup_theme', 'agratitudesign_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -83,80 +78,21 @@ add_action( 'after_setup_theme', 'wp_bootstrap_starter_setup' );
  *
  * @global int $content_width
  */
-function wp_bootstrap_starter_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'wp_bootstrap_starter_content_width', 1170 );
+function agratitudesign_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'agratitudesign_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'wp_bootstrap_starter_content_width', 0 );
-
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function wp_bootstrap_starter_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'wp-bootstrap-starter' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
-	) );
-    register_sidebar( array(
-        'name'          => esc_html__( 'Footer 1', 'wp-bootstrap-starter' ),
-        'id'            => 'footer-1',
-        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
-        'before_widget' => '<section id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</section>',
-        'before_title'  => '<h3 class="widget-title">',
-        'after_title'   => '</h3>',
-    ) );
-    register_sidebar( array(
-        'name'          => esc_html__( 'Footer 2', 'wp-bootstrap-starter' ),
-        'id'            => 'footer-2',
-        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
-        'before_widget' => '<section id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</section>',
-        'before_title'  => '<h3 class="widget-title">',
-        'after_title'   => '</h3>',
-    ) );
-    register_sidebar( array(
-        'name'          => esc_html__( 'Footer 3', 'wp-bootstrap-starter' ),
-        'id'            => 'footer-3',
-        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
-        'before_widget' => '<section id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</section>',
-        'before_title'  => '<h3 class="widget-title">',
-        'after_title'   => '</h3>',
-    ) );
-}
-add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
-
+add_action( 'after_setup_theme', 'agratitudesign_content_width', 0 );
 
 
 /**
- * Enqueue scripts and styles.
+ * Add CSS/JS Scritps
  */
 require get_template_directory() . '/inc/enqueue.php';
 
-function wp_bootstrap_starter_password_form() {
-    global $post;
-    $label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
-    $o = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">
-    <div class="d-block mb-3">' . __( "To view this protected post, enter the password below:", "wp-bootstrap-starter" ) . '</div>
-    <div class="form-group form-inline"><label for="' . $label . '" class="mr-2">' . __( "Password:", "wp-bootstrap-starter" ) . ' </label><input name="post_password" id="' . $label . '" type="password" size="20" maxlength="20" class="form-control mr-2" /> <input type="submit" name="Submit" value="' . esc_attr__( "Submit", "wp-bootstrap-starter" ) . '" class="btn btn-primary"/></div>
-    </form>';
-    return $o;
-}
-add_filter( 'the_password_form', 'wp_bootstrap_starter_password_form' );
-
-
-
 /**
- * Implement the Custom Header feature.
+ * Register Widget Areas
  */
-require get_template_directory() . '/inc/custom-header.php';
+require get_template_directory() . '/inc/widgets.php';
 
 /**
  * Custom template tags for this theme.
@@ -179,8 +115,6 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/plugin-compatibility/plugin-compatibility.php';
 
 /**
- * Load custom WordPress nav walker.
+ * Bootstrap Walker.
  */
-if ( ! class_exists( 'wp_bootstrap_navwalker' )) {
-    require_once(get_template_directory() . '/inc/wp_bootstrap_navwalker.php');
-}
+require get_template_directory() . '/inc/bootstrap-walker.php';

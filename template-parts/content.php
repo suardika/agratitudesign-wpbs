@@ -4,15 +4,25 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package WP_Bootstrap_Starter
+ * @package Agratitudesign WPBS4
  */
 
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="post-thumbnail">
-		<?php the_post_thumbnail(); ?>
-	</div>
+
+	<?php if ( has_post_thumbnail() && is_single() ) : ?>
+		<div class="post-thumbnail">
+			<?php the_post_thumbnail('full', array('class' => 'rounded')); ?>
+		</div><!--  .post-thumbnail -->
+		<?php else : ?>
+			<div class="post-thumbnail">
+		    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+		        <?php the_post_thumbnail('full', array('class' => 'rounded')); ?>
+		    </a>
+		</div><!--  .post-thumbnail -->
+	<?php endif; ?>
+
 	<header class="entry-header">
 		<?php
 		if ( is_single() ) :
@@ -23,27 +33,28 @@
 
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php wp_bootstrap_starter_posted_on(); ?>
+			<?php agratitudesign_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
 	</header><!-- .entry-header -->
+
 	<div class="entry-content">
 		<?php
-        if ( is_single() ) :
-			the_content();
-        else :
-            the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'wp-bootstrap-starter' ) );
-        endif;
+			the_content( sprintf(
+				/* translators: %s: Name of current post. */
+				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'agratitudesign' ), array( 'span' => array( 'class' => array() ) ) ),
+				the_title( '<span class="screen-reader-text">"', '"</span>', false )
+			) );
 
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wp-bootstrap-starter' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'agratitudesign' ),
 				'after'  => '</div>',
 			) );
 		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php wp_bootstrap_starter_entry_footer(); ?>
+		<?php agratitudesign_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

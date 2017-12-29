@@ -7,7 +7,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package WP_Bootstrap_Starter
+ * @package Agratitudesign WPBS4
  */
 
 /*
@@ -22,97 +22,104 @@ if ( post_password_required() ) {
 
 <div id="comments" class="comments-area">
 
-    <?php
-    // You can start editing here -- including this comment!
-    if ( have_comments() ) : ?>
+	<?php
+	// You can start editing here -- including this comment!
+	if ( have_comments() ) : ?>
+		<h2 class="comments-title">
+			<?php
+				printf( // WPCS: XSS OK.
+					esc_html( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'agratitudesign' ) ),
+					number_format_i18n( get_comments_number() ),
+					'<span>' . get_the_title() . '</span>'
+				);
+			?>
+		</h2><!-- .comments-title -->
 
-        <h2 class="comments-title">
-            <?php
-            $comments_number = get_comments_number();
-            if ( '1' === $comments_number ) {
-                /* translators: %s: post title */
-                printf( _x( 'One thought on &ldquo;%s&rdquo;', 'comments title', 'wp-bootstrap-starter' ), get_the_title() );
-            } else {
-                printf(
-                /* translators: 1: number of comments, 2: post title */
-                    _nx(
-                        '%1$s thought on &ldquo;%2$s&rdquo;',
-                        '%1$s thoughts on &ldquo;%2$s&rdquo;',
-                        $comments_number,
-                        'comments title',
-                        'wp-bootstrap-starter'
-                    ),
-                    number_format_i18n( $comments_number ),
-                    get_the_title()
-                );
-            }
-            ?>
-        </h2><!-- .comments-title -->
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
+		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
+			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'agratitudesign' ); ?></h2>
+			<div class="nav-links">
 
+				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'agratitudesign' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'agratitudesign' ) ); ?></div>
 
-        <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-            <nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-                <h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'wp-bootstrap-starter' ); ?></h2>
-                <div class="nav-links">
+			</div><!-- .nav-links -->
+		</nav><!-- #comment-nav-above -->
+		<?php endif; // Check for comment navigation. ?>
 
-                    <div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'wp-bootstrap-starter' ) ); ?></div>
-                    <div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'wp-bootstrap-starter' ) ); ?></div>
+		<ol class="comment-list">
+			<?php
+				wp_list_comments( array(
+					'style'      => 'ol',
+					'short_ping' => true,
+				) );
+			?>
+		</ol><!-- .comment-list -->
 
-                </div><!-- .nav-links -->
-            </nav><!-- #comment-nav-above -->
-        <?php endif; // Check for comment navigation. ?>
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
+		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
+			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'agratitudesign' ); ?></h2>
+			<div class="nav-links">
 
-        <ul class="comment-list">
-            <?php
-            wp_list_comments( array( 'callback' => 'wp_bootstrap_starter_comment', 'avatar_size' => 50 ));
-            ?>
-        </ul><!-- .comment-list -->
+				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'agratitudesign' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'agratitudesign' ) ); ?></div>
 
-        <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-            <nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
-                <h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'wp-bootstrap-starter' ); ?></h2>
-                <div class="nav-links">
+			</div><!-- .nav-links -->
+		</nav><!-- #comment-nav-below -->
+		<?php
+		endif; // Check for comment navigation.
 
-                    <div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'wp-bootstrap-starter' ) ); ?></div>
-                    <div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'wp-bootstrap-starter' ) ); ?></div>
-
-                </div><!-- .nav-links -->
-            </nav><!-- #comment-nav-below -->
-            <?php
-        endif; // Check for comment navigation.
-
-    endif; // Check for have_comments().
+	endif; // Check for have_comments().
 
 
-    // If comments are closed and there are comments, let's leave a little note, shall we?
-    if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
+	// If comments are closed and there are comments, let's leave a little note, shall we?
+	if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
 
-        <p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'wp-bootstrap-starter' ); ?></p>
-        <?php
-    endif; ?>
+		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'agratitudesign' ); ?></p>
+	<?php
+	endif;
 
-    <?php comment_form( $args = array(
-        'id_form'           => 'commentform',  // that's the wordpress default value! delete it or edit it ;)
-        'id_submit'         => 'commentsubmit',
-        'title_reply'       => __( 'Leave a Reply', 'wp-bootstrap-starter' ),  // that's the wordpress default value! delete it or edit it ;)
-        'title_reply_to'    => __( 'Leave a Reply to %s', 'wp-bootstrap-starter' ),  // that's the wordpress default value! delete it or edit it ;)
-        'cancel_reply_link' => __( 'Cancel Reply', 'wp-bootstrap-starter' ),  // that's the wordpress default value! delete it or edit it ;)
-        'label_submit'      => __( 'Post Comment', 'wp-bootstrap-starter' ),  // that's the wordpress default value! delete it or edit it ;)
+	$req = get_option( 'require_name_email' );
+    $aria_req = ( $req ? " aria-required='true'" : '' );
 
-        'comment_field' =>  '<p><textarea placeholder="Start typing..." id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+	$comments_args = array(
+        // change the title of send button 
+        'label_submit'=>'Submit',
+        // change the title of the reply section
+        'title_reply'=>'Leave a Comment',
+        // remove "Text or HTML to be displayed after the set of comment fields"
+        'comment_notes_after' => '',
+        // add classes to submit button
+        'class_submit'=>'btn btn-secondary',
+        // redefine your own textarea (the comment body)
+        'comment_field' => ' <div class="form-group"><label for="comment">' . _x( 'Comment', 'agratitudesign' ) . '</label><textarea class="form-control" rows="10" id="comment" name="comment" aria-required="true"></textarea></div>',
 
-        'comment_notes_after' => '<p class="form-allowed-tags">' .
-            __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:', 'wp-bootstrap-starter' ) .
-            '</p><div class="alert alert-info">' . allowed_tags() . '</div>'
+        'fields' => apply_filters( 'comment_form_default_fields', array(
 
-        // So, that was the needed stuff to have bootstrap basic styles for the form elements and buttons
+          'author' =>
+            '<div class="form-group">' .
+            '<label for="author">' . __( 'Name', 'agratitudesign' ) . '</label> ' .
+            ( $req ? '<span class="required">*</span>' : '' ) .
+            '<input class="form-control" id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+            '" size="30"' . $aria_req . ' /></div>',
 
-        // Basically you can edit everything here!
-        // Checkout the docs for more: http://codex.wordpress.org/Function_Reference/comment_form
-        // Another note: some classes are added in the bootstrap-wp.js - ckeck from line 1
+          'email' =>
+            '<div class="form-group"><label for="email">' . __( 'Email', 'agratitudesign' ) . '</label> ' .
+            ( $req ? '<span class="required">*</span>' : '' ) .
+            '<input class="form-control" id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+            '" size="30"' . $aria_req . ' /></div>',
 
-    ));
+          'url' =>
+            '<div class="form-group"><label for="url">' .
+            __( 'Website', 'agratitudesign' ) . '</label>' .
+            '<input class="form-control" id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .
+            '" size="30" /></div>'
+        )
+        
+      ),
+  	);
 
+	comment_form($comments_args);
 	?>
 
 </div><!-- #comments -->

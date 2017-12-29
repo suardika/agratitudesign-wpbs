@@ -6,28 +6,25 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package WP_Bootstrap_Starter
+ * @package Agratitudesign WPBS4
  */
 
 ?>
-<?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
-			</div><!-- .row -->
-		</div><!-- .container -->
-	</div><!-- #content -->
-    <?php get_template_part( 'footer-widget' ); ?>
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="container-fluid p-3 p-md-5">
-            <div class="site-info">
-                &copy; <?php echo date('Y'); ?> <?php echo '<a href="'.home_url().'">'.get_bloginfo('name').'</a>'; ?>
-                <span class="sep"> | </span>
-                <a class="credits" href="https://afterimagedesigns.com/wp-bootstrap-starter/" target="_blank" title="Wordpress Technical Support" alt="Bootstrap Wordpress Theme"><?php echo esc_html__('Bootstrap Wordpress Theme','wp-bootstrap-starter'); ?></a>
 
-            </div><!-- close .site-info -->
-		</div>
+	</div><!-- #content -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+			<div class="site-info">
+				&copy; <?php bloginfo( 'name' );
+						echo ' - ';
+						echo date("Y"); ?>
+			</div><!-- .site-info -->
+		</div><!--  .container -->
 	</footer><!-- #colophon -->
-<?php endif; ?>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+
 </body>
 </html>
