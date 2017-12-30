@@ -108,17 +108,6 @@ b,strong {
   font-weight: bolder;
 }
 
-sub {
-  position: relative;
-  font-size: 75%;
-  line-height: 0;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -.25em;
-}
-
 a {
   color: #007bff;
   text-decoration: none;
@@ -365,6 +354,16 @@ mark,.mark {
   background-color: #fcf8e3;
 }
 
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
@@ -444,6 +443,14 @@ pre code {
   .container {
     max-width: 1140px;
   }
+}
+
+.container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .row {
@@ -2122,13 +2129,6 @@ tbody.collapse.show {
   vertical-align: 0;
 }
 
-.dropdown-divider {
-  height: 0;
-  margin: 0.5rem 0;
-  overflow: hidden;
-  border-top: 1px solid #e9ecef;
-}
-
 .dropdown-item {
   display: block;
   width: 100%;
@@ -2611,7 +2611,7 @@ tbody.collapse.show {
   padding: 0.5rem 1rem;
 }
 
-.navbar > .container {
+.navbar > .container,.navbar > .container-fluid {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
@@ -2699,7 +2699,7 @@ tbody.collapse.show {
 }
 
 @media (max-width: 575.99px) {
-  .navbar-expand-sm > .container {
+  .navbar-expand-sm > .container,  .navbar-expand-sm > .container-fluid {
     padding-right: 0;
     padding-left: 0;
   }
@@ -2732,7 +2732,7 @@ tbody.collapse.show {
     padding-left: .5rem;
   }
 
-  .navbar-expand-sm > .container {
+  .navbar-expand-sm > .container,  .navbar-expand-sm > .container-fluid {
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
   }
@@ -2755,7 +2755,7 @@ tbody.collapse.show {
 }
 
 @media (max-width: 767.99px) {
-  .navbar-expand-md > .container {
+  .navbar-expand-md > .container,  .navbar-expand-md > .container-fluid {
     padding-right: 0;
     padding-left: 0;
   }
@@ -2788,7 +2788,7 @@ tbody.collapse.show {
     padding-left: .5rem;
   }
 
-  .navbar-expand-md > .container {
+  .navbar-expand-md > .container,  .navbar-expand-md > .container-fluid {
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
   }
@@ -2811,7 +2811,7 @@ tbody.collapse.show {
 }
 
 @media (max-width: 991.99px) {
-  .navbar-expand-lg > .container {
+  .navbar-expand-lg > .container,  .navbar-expand-lg > .container-fluid {
     padding-right: 0;
     padding-left: 0;
   }
@@ -2844,7 +2844,7 @@ tbody.collapse.show {
     padding-left: .5rem;
   }
 
-  .navbar-expand-lg > .container {
+  .navbar-expand-lg > .container,  .navbar-expand-lg > .container-fluid {
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
   }
@@ -2873,7 +2873,7 @@ tbody.collapse.show {
   justify-content: flex-start;
 }
 
-.navbar-expand > .container {
+.navbar-expand > .container,.navbar-expand > .container-fluid {
   padding-right: 0;
   padding-left: 0;
 }
@@ -2897,7 +2897,7 @@ tbody.collapse.show {
   padding-left: .5rem;
 }
 
-.navbar-expand > .container {
+.navbar-expand > .container,.navbar-expand > .container-fluid {
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
 }
@@ -4755,11 +4755,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
   margin: 0 !important;
 }
 
-.mt-0 {
+.mt-0,.my-0 {
   margin-top: 0 !important;
 }
 
-.mb-0 {
+.mb-0,.my-0 {
   margin-bottom: 0 !important;
 }
 
@@ -4767,11 +4767,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
   margin: 0.25rem !important;
 }
 
-.mt-1 {
+.mt-1,.my-1 {
   margin-top: 0.25rem !important;
 }
 
-.mb-1 {
+.mb-1,.my-1 {
   margin-bottom: 0.25rem !important;
 }
 
@@ -4779,11 +4779,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
   margin: 0.5rem !important;
 }
 
-.mt-2 {
+.mt-2,.my-2 {
   margin-top: 0.5rem !important;
 }
 
-.mb-2 {
+.mb-2,.my-2 {
   margin-bottom: 0.5rem !important;
 }
 
@@ -4791,11 +4791,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
   margin: 1rem !important;
 }
 
-.mt-3 {
+.mt-3,.my-3 {
   margin-top: 1rem !important;
 }
 
-.mb-3 {
+.mb-3,.my-3 {
   margin-bottom: 1rem !important;
 }
 
@@ -4803,11 +4803,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
   margin: 1.5rem !important;
 }
 
-.mt-4 {
+.mt-4,.my-4 {
   margin-top: 1.5rem !important;
 }
 
-.mb-4 {
+.mb-4,.my-4 {
   margin-bottom: 1.5rem !important;
 }
 
@@ -4815,11 +4815,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
   margin: 3rem !important;
 }
 
-.mt-5 {
+.mt-5,.my-5 {
   margin-top: 3rem !important;
 }
 
-.mb-5 {
+.mb-5,.my-5 {
   margin-bottom: 3rem !important;
 }
 
@@ -4899,11 +4899,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
   margin: auto !important;
 }
 
-.mt-auto {
+.mt-auto,.my-auto {
   margin-top: auto !important;
 }
 
-.mb-auto {
+.mb-auto,.my-auto {
   margin-bottom: auto !important;
 }
 
@@ -4912,11 +4912,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: 0 !important;
   }
 
-  .mt-sm-0 {
+  .mt-sm-0,  .my-sm-0 {
     margin-top: 0 !important;
   }
 
-  .mb-sm-0 {
+  .mb-sm-0,  .my-sm-0 {
     margin-bottom: 0 !important;
   }
 
@@ -4924,11 +4924,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: 0.25rem !important;
   }
 
-  .mt-sm-1 {
+  .mt-sm-1,  .my-sm-1 {
     margin-top: 0.25rem !important;
   }
 
-  .mb-sm-1 {
+  .mb-sm-1,  .my-sm-1 {
     margin-bottom: 0.25rem !important;
   }
 
@@ -4936,11 +4936,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: 0.5rem !important;
   }
 
-  .mt-sm-2 {
+  .mt-sm-2,  .my-sm-2 {
     margin-top: 0.5rem !important;
   }
 
-  .mb-sm-2 {
+  .mb-sm-2,  .my-sm-2 {
     margin-bottom: 0.5rem !important;
   }
 
@@ -4948,11 +4948,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: 1rem !important;
   }
 
-  .mt-sm-3 {
+  .mt-sm-3,  .my-sm-3 {
     margin-top: 1rem !important;
   }
 
-  .mb-sm-3 {
+  .mb-sm-3,  .my-sm-3 {
     margin-bottom: 1rem !important;
   }
 
@@ -4960,11 +4960,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: 1.5rem !important;
   }
 
-  .mt-sm-4 {
+  .mt-sm-4,  .my-sm-4 {
     margin-top: 1.5rem !important;
   }
 
-  .mb-sm-4 {
+  .mb-sm-4,  .my-sm-4 {
     margin-bottom: 1.5rem !important;
   }
 
@@ -4972,11 +4972,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: 3rem !important;
   }
 
-  .mt-sm-5 {
+  .mt-sm-5,  .my-sm-5 {
     margin-top: 3rem !important;
   }
 
-  .mb-sm-5 {
+  .mb-sm-5,  .my-sm-5 {
     margin-bottom: 3rem !important;
   }
 
@@ -5056,11 +5056,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: auto !important;
   }
 
-  .mt-sm-auto {
+  .mt-sm-auto,  .my-sm-auto {
     margin-top: auto !important;
   }
 
-  .mb-sm-auto {
+  .mb-sm-auto,  .my-sm-auto {
     margin-bottom: auto !important;
   }
 }
@@ -5070,11 +5070,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: 0 !important;
   }
 
-  .mt-md-0 {
+  .mt-md-0,  .my-md-0 {
     margin-top: 0 !important;
   }
 
-  .mb-md-0 {
+  .mb-md-0,  .my-md-0 {
     margin-bottom: 0 !important;
   }
 
@@ -5082,11 +5082,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: 0.25rem !important;
   }
 
-  .mt-md-1 {
+  .mt-md-1,  .my-md-1 {
     margin-top: 0.25rem !important;
   }
 
-  .mb-md-1 {
+  .mb-md-1,  .my-md-1 {
     margin-bottom: 0.25rem !important;
   }
 
@@ -5094,11 +5094,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: 0.5rem !important;
   }
 
-  .mt-md-2 {
+  .mt-md-2,  .my-md-2 {
     margin-top: 0.5rem !important;
   }
 
-  .mb-md-2 {
+  .mb-md-2,  .my-md-2 {
     margin-bottom: 0.5rem !important;
   }
 
@@ -5106,11 +5106,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: 1rem !important;
   }
 
-  .mt-md-3 {
+  .mt-md-3,  .my-md-3 {
     margin-top: 1rem !important;
   }
 
-  .mb-md-3 {
+  .mb-md-3,  .my-md-3 {
     margin-bottom: 1rem !important;
   }
 
@@ -5118,11 +5118,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: 1.5rem !important;
   }
 
-  .mt-md-4 {
+  .mt-md-4,  .my-md-4 {
     margin-top: 1.5rem !important;
   }
 
-  .mb-md-4 {
+  .mb-md-4,  .my-md-4 {
     margin-bottom: 1.5rem !important;
   }
 
@@ -5130,11 +5130,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: 3rem !important;
   }
 
-  .mt-md-5 {
+  .mt-md-5,  .my-md-5 {
     margin-top: 3rem !important;
   }
 
-  .mb-md-5 {
+  .mb-md-5,  .my-md-5 {
     margin-bottom: 3rem !important;
   }
 
@@ -5214,11 +5214,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: auto !important;
   }
 
-  .mt-md-auto {
+  .mt-md-auto,  .my-md-auto {
     margin-top: auto !important;
   }
 
-  .mb-md-auto {
+  .mb-md-auto,  .my-md-auto {
     margin-bottom: auto !important;
   }
 }
@@ -5228,11 +5228,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: 0 !important;
   }
 
-  .mt-lg-0 {
+  .mt-lg-0,  .my-lg-0 {
     margin-top: 0 !important;
   }
 
-  .mb-lg-0 {
+  .mb-lg-0,  .my-lg-0 {
     margin-bottom: 0 !important;
   }
 
@@ -5240,11 +5240,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: 0.25rem !important;
   }
 
-  .mt-lg-1 {
+  .mt-lg-1,  .my-lg-1 {
     margin-top: 0.25rem !important;
   }
 
-  .mb-lg-1 {
+  .mb-lg-1,  .my-lg-1 {
     margin-bottom: 0.25rem !important;
   }
 
@@ -5252,11 +5252,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: 0.5rem !important;
   }
 
-  .mt-lg-2 {
+  .mt-lg-2,  .my-lg-2 {
     margin-top: 0.5rem !important;
   }
 
-  .mb-lg-2 {
+  .mb-lg-2,  .my-lg-2 {
     margin-bottom: 0.5rem !important;
   }
 
@@ -5264,11 +5264,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: 1rem !important;
   }
 
-  .mt-lg-3 {
+  .mt-lg-3,  .my-lg-3 {
     margin-top: 1rem !important;
   }
 
-  .mb-lg-3 {
+  .mb-lg-3,  .my-lg-3 {
     margin-bottom: 1rem !important;
   }
 
@@ -5276,11 +5276,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: 1.5rem !important;
   }
 
-  .mt-lg-4 {
+  .mt-lg-4,  .my-lg-4 {
     margin-top: 1.5rem !important;
   }
 
-  .mb-lg-4 {
+  .mb-lg-4,  .my-lg-4 {
     margin-bottom: 1.5rem !important;
   }
 
@@ -5288,11 +5288,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: 3rem !important;
   }
 
-  .mt-lg-5 {
+  .mt-lg-5,  .my-lg-5 {
     margin-top: 3rem !important;
   }
 
-  .mb-lg-5 {
+  .mb-lg-5,  .my-lg-5 {
     margin-bottom: 3rem !important;
   }
 
@@ -5372,11 +5372,11 @@ a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
     margin: auto !important;
   }
 
-  .mt-lg-auto {
+  .mt-lg-auto,  .my-lg-auto {
     margin-top: auto !important;
   }
 
-  .mb-lg-auto {
+  .mb-lg-auto,  .my-lg-auto {
     margin-bottom: auto !important;
   }
 }

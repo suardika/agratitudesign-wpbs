@@ -69,39 +69,7 @@
   left: -1.85714286em;
 }
 
-.fa-pull-left {
-  float: left;
-}
-
-.fa-pull-right {
-  float: right;
-}
-
-.fa.fa-pull-left {
-  margin-right: .3em;
-}
-
-.fa.fa-pull-right {
-  margin-left: .3em;
-}
-
 /* Deprecated as of 4.4.0 */
-
-.pull-right {
-  float: right;
-}
-
-.pull-left {
-  float: left;
-}
-
-.fa.pull-left {
-  margin-right: .3em;
-}
-
-.fa.pull-right {
-  margin-left: .3em;
-}
 
 @keyframes fa-spin {
   0% {
@@ -152,6 +120,10 @@
   content: "\f021";
 }
 
+.fa-list-alt:before {
+  content: "\f022";
+}
+
 .fa-tag:before {
   content: "\f02b";
 }
@@ -170,10 +142,6 @@
 
 .fa-font:before {
   content: "\f031";
-}
-
-.fa-text-height:before {
-  content: "\f034";
 }
 
 .fa-text-width:before {
@@ -220,14 +188,6 @@
   content: "\f086";
 }
 
-.fa-upload:before {
-  content: "\f093";
-}
-
-.fa-github:before {
-  content: "\f09b";
-}
-
 .fa-feed:before,.fa-rss:before {
   content: "\f09e";
 }
@@ -266,26 +226,6 @@
 
 .fa-table:before {
   content: "\f0ce";
-}
-
-.fa-caret-up:before {
-  content: "\f0d8";
-}
-
-.fa-caret-left:before {
-  content: "\f0d9";
-}
-
-.fa-caret-right:before {
-  content: "\f0da";
-}
-
-.fa-dashboard:before {
-  content: "\f0e4";
-}
-
-.fa-cloud-upload:before {
-  content: "\f0ee";
 }
 
 .fa-user-md:before {
@@ -334,10 +274,6 @@
 
 .fa-archive:before {
   content: "\f187";
-}
-
-.fa-toggle-left:before {
-  content: "\f191";
 }
 
 .fa-try:before {
@@ -390,10 +326,6 @@
 
 .fa-internet-explorer:before {
   content: "\f26b";
-}
-
-.fa-500px:before {
-  content: "\f26e";
 }
 
 .fa-first-order:before {

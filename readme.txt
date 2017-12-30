@@ -80,6 +80,17 @@ git reset --hard origin/master
 rm -rf [project_folder]
 git clone [remote_repo]
 
+---
+
+git fetch origin 7d4bbee0649aaae2e21b945d9599162b4d4a2341
+git checkout FETCH_HEAD
+
+---
+
+git checkout master
+git checkout -b <new brach>
+git push --all
+
 
 INSTALL BOWER optional
 ======================
