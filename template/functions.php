@@ -87,12 +87,7 @@ add_action( 'after_setup_theme', 'agratitudesign_content_width', 0 );
 /**
  * Add CSS/JS Scritps
  */
-require get_template_directory() . '/inc/enqueue-business.php';
-
-/**
- * Add breadcrumb Scritps
- */
-require get_template_directory() . '/inc/bootstrap-breadcrumb.php';
+require get_template_directory() . '/inc/enqueue.php';
 
 /**
  * Register Widget Areas

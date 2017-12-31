@@ -11,20 +11,17 @@
 
 ?>
 
-	</div><!-- #content -->
-
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="container">
-			<div class="site-info">
-				&copy; <?php bloginfo( 'name' );
-						echo ' - ';
-						echo date("Y"); ?>
-			</div><!-- .site-info -->
-		</div><!--  .container -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
-
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+	<div class="container">
+		<p class="m-0 text-center text-white">
+			&copy; <?php bloginfo( 'name' );
+					echo ' - ';
+					echo date("Y"); ?>
+		</p>
+	</div>
+	<!-- /.container -->
+</footer>
 <?php wp_footer(); ?>
-
 </body>
 </html>

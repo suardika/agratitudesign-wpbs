@@ -200,7 +200,7 @@
   content: "\f0c0";
 }
 
-.fa-link:before {
+.fa-chain:before,.fa-link:before {
   content: "\f0c1";
 }
 
@@ -346,4 +346,15 @@
 
 .fa-s15:before {
   content: "\f2cd";
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
