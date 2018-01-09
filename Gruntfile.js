@@ -373,7 +373,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'src/img',
-          src: ['**/*.{gif,GIF,jpg,JPG,png,PNG}'],
+          src: ['**/*.{gif,GIF,jpg,JPG,png,PNG,ico}'],
           dest: 'assets/img/'
         }]
       }
@@ -396,7 +396,7 @@ module.exports = function(grunt) {
         tasks: ['copy', 'autoprefixer', 'purifycss', 'cssmin']
       },
       image: {
-        files: 'src/img/**/*.{gif,GIF,jpg,JPG,png,PNG}',
+        files: 'src/img/**/*.{gif,GIF,jpg,JPG,png,PNG,ico}',
         tasks: ['imagemin']
       },
 

@@ -15,8 +15,7 @@
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="">
-		<meta name="author" content="">
+		<link rel="shortcut icon" href="<?php bloginfo('template_directory');?>/assets/img/favicon/favicon.ico">
 		<title>
 			<?php wp_title( '|', true, 'right' ); ?>
 			<?php bloginfo( 'name' ); ?>
@@ -82,7 +81,7 @@
 		              'theme_location' => 'primary',
 		              'depth'      => 2,
 		              'container'  => false,
-		              'menu_class'     => 'navbar-nav',
+		              'menu_class'     => 'navbar-nav ml-auto',
 		              'walker'     => new Bootstrap_Walker_Nav_Menu()
 		              );
 		            if (has_nav_menu('primary')) {
@@ -101,21 +100,21 @@
 				</ol>
 				<div class="carousel-inner" role="listbox">
 					<!-- Slide One - Set the background image for this slide in the line below -->
-					<div class="carousel-item active" style="background-image: url('http://placehold.it/1900x1080')">
+					<div class="carousel-item active" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-03.jpg')">
 						<div class="carousel-caption d-none d-md-block">
 							<h3>First Slide</h3>
 							<p>This is a description for the first slide.</p>
 						</div>
 					</div>
 					<!-- Slide Two - Set the background image for this slide in the line below -->
-					<div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+					<div class="carousel-item" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-01.jpg')">
 						<div class="carousel-caption d-none d-md-block">
 							<h3>Second Slide</h3>
 							<p>This is a description for the second slide.</p>
 						</div>
 					</div>
 					<!-- Slide Three - Set the background image for this slide in the line below -->
-					<div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+					<div class="carousel-item" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-06.jpg')">
 						<div class="carousel-caption d-none d-md-block">
 							<h3>Third Slide</h3>
 							<p>This is a description for the third slide.</p>
