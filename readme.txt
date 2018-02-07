@@ -92,6 +92,12 @@ git checkout -b <new brach>
 git push --all
 
 
+PUSH
+====
+git add .
+git commit -m "test"
+git push origin master
+
 INSTALL BOWER optional
 ======================
     npm install -g bower
@@ -344,3 +350,116 @@ npm install superfish --save
 
 npm install jquery.easing --save
 
+npm install jquery.counterup --save
+
+npm install jquery.waypoint --save
+
+
+
+GULP
+====
+
+{
+  "name": "bs4starter",
+  "version": "1.0.0",
+  "description": "Bootstrap 4 workflow",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "author": "Brad Traversy",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "4.0.0-beta",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1",
+    "popper.js": "^1.12.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  }
+}
+
+update dependencies package.json
+    npm update --save
+update Devdependencies package.json
+    npm update --save-dev
+
+
+1020
+down vote
+accepted
+This is the new best way to upgrade npm on Windows.
+
+Run PowerShell as Administrator
+
+Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
+npm install -g npm-windows-upgrade
+npm-windows-upgrade
+Note: Do not run npm i -g npm. Instead use npm-windows-upgrade to update npm going forward. Also if you run the NodeJS installer, it will replace the node version.
+
+Upgrades npm in-place, where node installed it.
+Easy updating, update to the latest by running npm-windows-upgrade -p -v latest.
+Does not modify the default path.
+Does not change the default global package location.
+Allows easy upgrades and downgrades.
+Officially recommended by the NPM team.
+A list of versions matched between NPM and NODE (https://nodejs.org/en/download/releases/) - but you will need to download NODE INSTALLER and run that to update node (https://nodejs.org/en/)
+
+
+---
+
+npm-check-updates is a utility that automatically adjusts a package.json with the latest version of all dependencies
+
+see https://www.npmjs.org/package/npm-check-updates
+
+$ npm install -g npm-check-updates
+$ ncu -u
+$ npm install 
+
+npm install --save-dev gulp-autoprefixer
+npm install --save-dev gulp-purifycss
+npm install --save-dev gulp-imagemin
+
+gulp.task('serve', ['sass'], ['movejs'], ['moveimg'], function(){
+  browserSync.init({
+    proxy: "telagabali.test"
+  });
+  gulp.watch(['src/bootstrap/**/*.scss', 'src/*.scss'], ['sass']);
+  gulp.watch('src/*.js', ['movejs']);
+  gulp.watch('src/img/**/*.{gif,GIF,jpg,JPG,png,PNG,svg,SVG}', ['moveimg']);
+  gulp.watch('**/*.php').on('change', browserSync.reload);
+});
+
+// Watch Sass & Server
+gulp.task('serve', ['sass'], ['movejs'], ['moveimg'], function(){
+  browserSync.init({
+    proxy: "telagabali.test"
+  });
+  gulp.watch('src/bootstrap/**/*.scss', 'src/*.scss'], ['sass']);
+  gulp.watch('src/*.js', ['movejs']);
+  gulp.watch('src/img/**/*.{gif,GIF,jpg,JPG,png,PNG,svg,SVG}', ['moveimg']);
+  gulp.watch('**/*.php').on('change', browserSync.reload);
+});
+
+
+// Watch Sass & Server
+gulp.task('serve', function(){
+  browserSync.init({
+    proxy: "telagabali.test"
+  });
+  gulp.watch(['src/bootstrap/**/*.scss', 'src/*.scss'], ['sass']);
+  gulp.watch("src/*.html").on('change', browserSync.reload);
+});
+
+npm install gulp-multi-dest --save-dev
+
+// Production Task - Move all dev Files to assets
+gulp.task('movedev', function(){
+  return gulp.src([
+    'dev/**/*',
+    ])
+    .pipe(gulp.dest("assets"))
+});

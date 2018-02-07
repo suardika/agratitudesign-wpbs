@@ -12,11 +12,12 @@
  * @package Agratitudesign WPBS4
  */
 
+
 get_header(); ?>
 
 <!-- Page Content -->
 <div class="container">
-  <h1 class="my-4">Welcome to Modern Business</h1>
+  <h1 class="my-4">Welcome to Modern Business bla </h1>
   <!-- Marketing Icons Section -->
   <div class="row">
     <div class="col-lg-4 mb-4">
