@@ -464,33 +464,19 @@ gulp.task('movedev', function(){
     .pipe(gulp.dest("assets"))
 });
 
-UPDATE GIT LATEST MASTER
+GIT
 ========================
 
-git reset --hard HEAD
-git clean -xffd
-git pull
+back or move to particular commit of git back and forward, check first 7 digit of the commit id
 
-git fetch origin
-git reset --hard origin/master
+git reset --hard 0d1ba94 (latest)
+git reset --hard 64806ae (previous)
 
-rm -rf [project_folder]
-git clone [remote_repo]
+but if you want to push a new commmit from the previous change
+hoping to push at the same branch, you need to change the head to be latest one
 
----
-
-git fetch origin 7d4bbee0649aaae2e21b945d9599162b4d4a2341
-git checkout FETCH_HEAD
-
----
-git reset --hard 0d1ba94
-git reset --hard 64806ae
-
-git reset --soft HEAD
-
-git checkout master
-git checkout -b <new brach>
-git push --all
+just copy .git of hiden folder which is containing the latest head
+change .git folder on privious commmit with the latest .git folder 
 
 
 PUSH
