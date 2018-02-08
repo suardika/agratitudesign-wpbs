@@ -20,13 +20,11 @@
     "browser-sync": "*",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
-    "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^3.9.2",
     "gulp-css-purge": "^3.0.3",
     "gulp-imagemin": "^4.1.0",
     "gulp-multi-dest": "^1.3.7",
     "gulp-purifycss": "^0.2.0",
-    "gulp-rename": "^1.2.2",
     "gulp-sass": "*"
   },
   "dependencies": {
@@ -36,7 +34,6 @@
     "jquery": "^3.2.1",
     "jquery.counterup": "^2.1.0",
     "jquery.easing": "^1.4.1",
-    "mdbootstrap": "^4.4.4",
     "owl.carousel": "^2.2.0",
     "popper.js": "^1.13.0",
     "superfish": "^1.7.9",

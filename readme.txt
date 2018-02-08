@@ -463,3 +463,38 @@ gulp.task('movedev', function(){
     ])
     .pipe(gulp.dest("assets"))
 });
+
+UPDATE GIT LATEST MASTER
+========================
+
+git reset --hard HEAD
+git clean -xffd
+git pull
+
+git fetch origin
+git reset --hard origin/master
+
+rm -rf [project_folder]
+git clone [remote_repo]
+
+---
+
+git fetch origin 7d4bbee0649aaae2e21b945d9599162b4d4a2341
+git checkout FETCH_HEAD
+
+---
+git reset --hard 0d1ba94
+git reset --hard 64806ae
+
+git reset --soft HEAD
+
+git checkout master
+git checkout -b <new brach>
+git push --all
+
+
+PUSH
+====
+git add .
+git commit -m "test"
+git push origin master
