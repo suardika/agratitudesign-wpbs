@@ -87,7 +87,7 @@ add_action( 'after_setup_theme', 'agratitudesign_content_width', 0 );
 /**
  * Add CSS/JS Scritps
  */
-require get_template_directory() . '/inc/enqueue-business.php';
+require get_template_directory() . '/inc/enqueue-premium.php';
 
 /**
  * Add breadcrumb Scritps

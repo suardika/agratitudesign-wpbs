@@ -25,6 +25,7 @@
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
+
 		<!-- Navigation -->
 		<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
 			<div class="container">
@@ -93,43 +94,48 @@
 				</div>
 			</div>
 		</nav>
-		<header>
-			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+		<!-- SHOWCASE SLIDER -->
+		<section id="showcase">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
-					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
 				</ol>
-				<div class="carousel-inner" role="listbox">
-					<!-- Slide One - Set the background image for this slide in the line below -->
-					<div class="carousel-item active" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-03.jpg')">
-						<div class="carousel-caption d-none d-md-block">
-							<h3>First Slide</h3>
-							<p>This is a description for the first slide.</p>
+				<div class="carousel-inner">
+					<div class="carousel-item carousel-image-1 active" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-03.jpg')" >
+						<div class="container">
+							<div class="carousel-caption d-none d-sm-block text-right mb-5">
+								<h1 class="display-3">Heading One</h1>
+								<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae consequuntur architecto eius magni nobis nulla eaque. Deserunt sunt, distinctio quos.</p>
+								<a href="#" class="btn btn-danger btn-lg">Sign Up Now</a>
+							</div>
 						</div>
 					</div>
-					<!-- Slide Two - Set the background image for this slide in the line below -->
-					<div class="carousel-item" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-01.jpg')">
-						<div class="carousel-caption d-none d-md-block">
-							<h3>Second Slide</h3>
-							<p>This is a description for the second slide.</p>
+					<div class="carousel-item carousel-image-2" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-03.jpg')">
+						<div class="container">
+							<div class="carousel-caption d-none d-sm-block mb-5">
+								<h1 class="display-3">Heading Two</h1>
+								<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae consequuntur architecto eius magni nobis nulla eaque. Deserunt sunt, distinctio quos.</p>
+								<a href="#" class="btn btn-primary btn-lg">Learn More</a>
+							</div>
 						</div>
 					</div>
-					<!-- Slide Three - Set the background image for this slide in the line below -->
-					<div class="carousel-item" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-06.jpg')">
-						<div class="carousel-caption d-none d-md-block">
-							<h3>Third Slide</h3>
-							<p>This is a description for the third slide.</p>
+					<div class="carousel-item carousel-image-1" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-03.jpg')">
+						<div class="container">
+							<div class="carousel-caption d-none d-sm-block text-right mb-5">
+								<h1 class="display-3">Heading Three</h1>
+								<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae consequuntur architecto eius magni nobis nulla eaque. Deserunt sunt, distinctio quos.</p>
+								<a href="#" class="btn btn-success btn-lg">Learn More</a>
+							</div>
 						</div>
 					</div>
 				</div>
-				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
+				<a href="#myCarousel" data-slide="prev" class="carousel-control-prev">
+					<span class="carousel-control-prev-icon"></span>
 				</a>
-				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
+				<a href="#myCarousel" data-slide="next" class="carousel-control-next">
+					<span class="carousel-control-next-icon"></span>
 				</a>
 			</div>
-		</header>
+		</section>

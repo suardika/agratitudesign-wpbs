@@ -484,3 +484,8 @@ PUSH
 git add .
 git commit -m "test"
 git push origin master
+
+npm install ekko-lightbox --save
+
+ctrl+shift+H -> Beautify sublime
+ctrl+alt+M -> Minify sublime
