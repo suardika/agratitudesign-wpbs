@@ -81,52 +81,6 @@
 	        <!-- container -->
 	    </nav>
 
-
-		<!-- SHOWCASE SLIDER -->
-		<section id="showcase">
-			<div id="myCarousel" class="carousel slide" data-ride="carousel">
-				<ol class="carousel-indicators">
-					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-					<li data-target="#myCarousel" data-slide-to="1"></li>
-					<li data-target="#myCarousel" data-slide-to="2"></li>
-				</ol>
-				<div class="carousel-inner">
-					<div class="carousel-item carousel-image-1 active" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-10.jpg')" >
-						<div class="dark-overlay"></div>
-						<div class="container">
-							<div class="carousel-caption d-none d-sm-block text-center mb-5">
-								<h1 class="display-3 animated wow fadeInDown" data-wow-delay=".7s">TELAGA BALI</h1>
-								<p class="lead animated wow fadeInUp" data-wow-delay=".9s">TELAGA, Specialized in the process engineering of water industries particularly in the field of desalination water/sewage and industrial effluent treatment plant.</p>
-								<a href="#" class="btn btn-danger btn-lg animated wow fadeInUp" data-wow-delay=".11s">Readmore</a>
-							</div>
-						</div>
-					</div>
-					<div class="carousel-item carousel-image-2" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-03.jpg')">
-						<div class="dark-overlay"></div>
-						<div class="container">
-							<div class="carousel-caption d-none d-sm-block mb-5">
-								<h1 class="display-3 animated wow fadeInDown" data-wow-delay=".7s">Plants/Products</h1>
-								<p class="lead animated wow fadeInUp" data-wow-delay=".9s">TELAGA plants/products combine, Asian, American and European technologies and experience in this field where our team engineers continuously researching and developing new process treatment and finding the quality equipment/products that is most reliable and cost effective that meets clients satisfaction and approval because the price you pay is the quality you afford to purchase</p>
-								<a href="#" class="btn btn-danger btn-lg animated wow fadeInUp" data-wow-delay=".11s">Readmore</a>
-							</div>
-						</div>
-					</div>
-					<div class="carousel-item carousel-image-1" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-06.jpg')">
-						<div class="dark-overlay"></div>
-						<div class="container">
-							<div class="carousel-caption d-none d-sm-block text-center mb-5">
-								<h1 class="display-3 animated wow fadeInDown" data-wow-delay=".7s">TELAGA Group</h1>
-								<p class="lead animated wow fadeInUp" data-wow-delay=".9s">TELAGA and Group have supplied many plants throughout Jawa, Sumatera, Kalimantan, Bali and Lombok where successful plants performance based on good engineering design and quality products were behind the normal growth of the company.</p>
-								<a href="#" class="btn btn-danger btn-lg animated wow fadeInUp" data-wow-delay=".11s">Readmore</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<a href="#myCarousel" data-slide="prev" class="carousel-control-prev">
-					<span class="carousel-control-prev-icon"></span>
-				</a>
-				<a href="#myCarousel" data-slide="next" class="carousel-control-next">
-					<span class="carousel-control-next-icon"></span>
-				</a>
-			</div>
-		</section>
+		<?php if ( is_front_page() ) { ?>
+			<?php get_template_part( 'template-parts/content', 'frontpage' ); ?>
+		<?php }	?>

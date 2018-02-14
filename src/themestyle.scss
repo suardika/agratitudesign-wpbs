@@ -6,7 +6,7 @@
 
 @import "bootstrap/bootstrap";
 
-$dark-overlay: rgba(0, 0, 0, 0.5);
+$dark-overlay: rgba(0, 0, 0, 0.7);
 $font-body: 'Rubik', sans-serif !important;
 $bg-navbar: $light * 1.4; 
 $ln-navbar: $primary * 5; 
@@ -73,7 +73,7 @@ $ln-navbar: $primary * 5;
 }
 
 .custom-logo-link img {
-    width: 120px;
+    width: 150px;
     height: auto;
     padding: 10px 10px;
     background: $light;

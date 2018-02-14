@@ -34,6 +34,9 @@ function agratitudesign_setup() {
 	 * provide it for us.
 	 */
 	add_theme_support( 'title-tag' );
+	add_theme_support('post-thumbnails');
+	add_image_size('bloglistImg', 350, 195, true);
+	// add_image_size('sliderImg', 1920, 1080, true);
 
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
@@ -96,6 +99,10 @@ function agratitudesign_content_width() {
 }
 add_action( 'after_setup_theme', 'agratitudesign_content_width', 0 );
 
+/**
+ * Add mu-plugin Scritps
+ */
+require get_template_directory() . '/inc/mu-plugin.php';
 
 /**
  * Add CSS/JS Scritps

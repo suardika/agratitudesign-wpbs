@@ -6801,7 +6801,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .dark-overlay {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   top: 0;
   left: 0;
   width: 100%;
@@ -6830,7 +6830,7 @@ a.text-dark:hover, a.text-dark:focus {
     transition: 0.3s; }
 
 .custom-logo-link img {
-  width: 120px;
+  width: 150px;
   height: auto;
   padding: 10px 10px;
   background: #9DEBFC;
