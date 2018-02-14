@@ -67,9 +67,22 @@ function agratitudesign_setup() {
 
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
+
 }
 endif;
 add_action( 'after_setup_theme', 'agratitudesign_setup' );
+
+function agratitudesign_custom_logo_setup() {
+    $defaults = array(
+        'height'      => 200,
+        'width'       => 200,
+        'flex-height' => true,
+        'flex-width'  => true,
+        'header-text' => array( 'site-title', 'site-description' ),
+    );
+    add_theme_support( 'custom-logo', $defaults );
+}
+add_action( 'after_setup_theme', 'agratitudesign_custom_logo_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -87,7 +100,7 @@ add_action( 'after_setup_theme', 'agratitudesign_content_width', 0 );
 /**
  * Add CSS/JS Scritps
  */
-require get_template_directory() . '/inc/enqueue-premium.php';
+require get_template_directory() . '/inc/enqueue.php';
 
 /**
  * Add breadcrumb Scritps
@@ -122,4 +135,5 @@ require get_template_directory() . '/inc/plugin-compatibility/plugin-compatibili
 /**
  * Bootstrap Walker.
  */
-require get_template_directory() . '/inc/bootstrap-walker.php';
+require_once get_template_directory() . '/inc/bootstrap-walker.php';
+

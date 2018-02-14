@@ -9,8 +9,6 @@
  * @package Agratitudesign WPBS4
  */
 
-
-
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -25,75 +23,65 @@
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
+		<nav class="top-nav top-nav-inverse bg-dark">
+		    <div class="container">
+		        <div class="py-1 clearfix">
+		            <div class="float-left">
+		                <a href="tel:+6236292638" class="mr-2 text-xs text-white"><small><i class="fa fa-phone mr-1"></i>+62-362-92638</small></a>
+		                <a href="mailto:hello@yoursite.com" class="mr-2 text-xs text-white"><small><i class="fa fa-envelope mr-1"></i>telaga10@gmail.com</small></a>
+		            </div>
+		            <div class="social-media-icon float-right">
+		                <a href="#x" class="btn btn-secondary btn-sm mr-2"><i class="fa fa-facebook"></i></a>
+		                <a href="#x" class="btn btn-secondary btn-sm mr-2"><i class="fa fa-twitter"></i></a>
+		                <a href="#x" class="btn btn-secondary btn-sm "><i class="fa fa-instagram"></i></a>
+		            </div>
+		        </div>
+		    </div><!-- / container -->
+		</nav><!-- / top-nav-primary -->
 
-		<!-- Navigation -->
-		<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
-			<div class="container">
-				<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarResponsive">
-					<!-- <ul class="navbar-nav ml-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="about.html">About</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="services.html">Services</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="contact.html">Contact</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Portfolio
-							</a>
-							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-								<a class="dropdown-item" href="portfolio-1-col.html">1 Column Portfolio</a>
-								<a class="dropdown-item" href="portfolio-2-col.html">2 Column Portfolio</a>
-								<a class="dropdown-item" href="portfolio-3-col.html">3 Column Portfolio</a>
-								<a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
-								<a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>
-							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Blog
-							</a>
-							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-								<a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
-								<a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
-								<a class="dropdown-item" href="blog-post.html">Blog Post</a>
-							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Other Pages
-							</a>
-							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-								<a class="dropdown-item" href="full-width.html">Full Width Page</a>
-								<a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
-								<a class="dropdown-item" href="faq.html">FAQ</a>
-								<a class="dropdown-item" href="404.html">404</a>
-								<a class="dropdown-item" href="pricing.html">Pricing Table</a>
-							</div>
-						</li>
-					</ul> -->
-		            <?php
-		            $args = array(
-		              'theme_location' => 'primary',
-		              'depth'      => 2,
-		              'container'  => false,
-		              'menu_class'     => 'navbar-nav ml-auto',
-		              'walker'     => new Bootstrap_Walker_Nav_Menu()
-		              );
-		            if (has_nav_menu('primary')) {
-		              wp_nav_menu($args);
-		            }
-		            ?>	
-				</div>
-			</div>
-		</nav>
+	    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top py-0">
+	        <div class="container no-padding">
+				<?php
+					// Display the Custom Logo
+					the_custom_logo();
+					// No Custom Logo, just display the site's name
+					if (!has_custom_logo()) {
+					    ?>
+						<a  href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+							<?php bloginfo( 'name' ); ?></a>
+				     <?php }
+				?>
+	            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+	                <span class="navbar-toggler-icon"></span>
+	            </button>
+	            <div class="collapse navbar-collapse" id="main-menu">
+	                <!-- / navbar-nav -->
+	                <?php
+	                    wp_nav_menu( array(
+	                        'theme_location'  => 'primary',
+	                        'container'       => false,
+	                        'menu_class'      => '',
+	                        'fallback_cb'     => '__return_false',
+	                        'items_wrap'      => '<ul id="%1$s" class="navbar-nav mr-auto mt-3 mt-lg-0 %2$s">%3$s</ul>',
+	                        'depth'           => 2,
+	                        'walker'          => new WP_Bootstrap_Navwalker()
+	                    ) );
+	                ?>
+
+			      <form class="form-inline ml-auto pt-2 pt-md-0" role="search" method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+			        <input class="form-control mr-sm-1" type="text" value="<?php echo get_search_query(); ?>" placeholder="Search..." name="s" id="s">
+			        <button type="submit" id="searchsubmit" value="<?php esc_attr_x('Search', 'b4st') ?>" class="btn btn-primary my-2 my-sm-0">
+			          <i class="fa fa-search"></i>
+			        </button>
+			      </form>
+	                              
+	            </div>
+	            <!-- main-menu -->
+	        </div>
+	        <!-- container -->
+	    </nav>
+
+
 		<!-- SHOWCASE SLIDER -->
 		<section id="showcase">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -103,30 +91,33 @@
 					<li data-target="#myCarousel" data-slide-to="2"></li>
 				</ol>
 				<div class="carousel-inner">
-					<div class="carousel-item carousel-image-1 active" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-03.jpg')" >
+					<div class="carousel-item carousel-image-1 active" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-10.jpg')" >
+						<div class="dark-overlay"></div>
 						<div class="container">
-							<div class="carousel-caption d-none d-sm-block text-right mb-5">
-								<h1 class="display-3">Heading One</h1>
-								<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae consequuntur architecto eius magni nobis nulla eaque. Deserunt sunt, distinctio quos.</p>
-								<a href="#" class="btn btn-danger btn-lg">Sign Up Now</a>
+							<div class="carousel-caption d-none d-sm-block text-center mb-5">
+								<h1 class="display-3 animated wow fadeInDown" data-wow-delay=".7s">TELAGA BALI</h1>
+								<p class="lead animated wow fadeInUp" data-wow-delay=".9s">TELAGA, Specialized in the process engineering of water industries particularly in the field of desalination water/sewage and industrial effluent treatment plant.</p>
+								<a href="#" class="btn btn-danger btn-lg animated wow fadeInUp" data-wow-delay=".11s">Readmore</a>
 							</div>
 						</div>
 					</div>
 					<div class="carousel-item carousel-image-2" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-03.jpg')">
+						<div class="dark-overlay"></div>
 						<div class="container">
 							<div class="carousel-caption d-none d-sm-block mb-5">
-								<h1 class="display-3">Heading Two</h1>
-								<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae consequuntur architecto eius magni nobis nulla eaque. Deserunt sunt, distinctio quos.</p>
-								<a href="#" class="btn btn-primary btn-lg">Learn More</a>
+								<h1 class="display-3 animated wow fadeInDown" data-wow-delay=".7s">Plants/Products</h1>
+								<p class="lead animated wow fadeInUp" data-wow-delay=".9s">TELAGA plants/products combine, Asian, American and European technologies and experience in this field where our team engineers continuously researching and developing new process treatment and finding the quality equipment/products that is most reliable and cost effective that meets clients satisfaction and approval because the price you pay is the quality you afford to purchase</p>
+								<a href="#" class="btn btn-danger btn-lg animated wow fadeInUp" data-wow-delay=".11s">Readmore</a>
 							</div>
 						</div>
 					</div>
-					<div class="carousel-item carousel-image-1" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-03.jpg')">
+					<div class="carousel-item carousel-image-1" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-06.jpg')">
+						<div class="dark-overlay"></div>
 						<div class="container">
-							<div class="carousel-caption d-none d-sm-block text-right mb-5">
-								<h1 class="display-3">Heading Three</h1>
-								<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae consequuntur architecto eius magni nobis nulla eaque. Deserunt sunt, distinctio quos.</p>
-								<a href="#" class="btn btn-success btn-lg">Learn More</a>
+							<div class="carousel-caption d-none d-sm-block text-center mb-5">
+								<h1 class="display-3 animated wow fadeInDown" data-wow-delay=".7s">TELAGA Group</h1>
+								<p class="lead animated wow fadeInUp" data-wow-delay=".9s">TELAGA and Group have supplied many plants throughout Jawa, Sumatera, Kalimantan, Bali and Lombok where successful plants performance based on good engineering design and quality products were behind the normal growth of the company.</p>
+								<a href="#" class="btn btn-danger btn-lg animated wow fadeInUp" data-wow-delay=".11s">Readmore</a>
 							</div>
 						</div>
 					</div>
