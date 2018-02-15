@@ -1,8 +1,8 @@
 /*!
- * Start Bootstrap - Modern Business (https://startbootstrap.com/template-overviews/modern-business)
- * Copyright 2013-2017 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-logomodern-business-nav/blob/master/LICENSE)
- */
+* Start Bootstrap - Modern Business (https://startbootstrap.com/template-overviews/modern-business)
+* Copyright 2013-2017 Start Bootstrap
+* Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-logomodern-business-nav/blob/master/LICENSE)
+*/
 /*!
  * Bootstrap v4.0.0 (https://getbootstrap.com)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -6837,3 +6837,44 @@ a.text-dark:hover, a.text-dark:focus {
   position: absolute;
   top: 0;
   border-bottom: 4px solid #0A69BB; }
+
+#blog .card .card-header .meta-tags {
+  font-size: 80%;
+  font-weight: 400; }
+
+#blog .card .card-body {
+  min-height: 250px; }
+
+#page-header {
+  position: relative;
+  height: 200px;
+  background-position: 0 -360px;
+  background-attachment: fixed;
+  color: #fff;
+  border-bottom: 1px #eee solid;
+  padding-top: 50px; }
+  #page-header .banner-overlay {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+  #page-header .breadcrumb {
+    position: absolute;
+    z-index: 1010;
+    bottom: -1rem; }
+
+#sidebar div div {
+  background: #cef5fe;
+  padding: 1rem;
+  margin: 0; }
+
+#sidebar div ul {
+  background: #cef5fe;
+  padding: 1rem;
+  list-style: none;
+  margin: 0; }
+
+#sidebar div h2 {
+  font-size: 1rem !important; }

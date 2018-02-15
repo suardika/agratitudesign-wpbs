@@ -112,7 +112,12 @@ require get_template_directory() . '/inc/enqueue.php';
 /**
  * Add breadcrumb Scritps
  */
-require get_template_directory() . '/inc/bootstrap-breadcrumb.php';
+require_once get_template_directory() . '/inc/bootstrap-breadcrumb.php';
+
+/**
+ * Add pagination Scritps
+ */
+require_once get_template_directory() . '/inc/bootstrap-pagination.php';
 
 /**
  * Register Widget Areas

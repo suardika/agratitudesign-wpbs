@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Retrieve category parents.
  *
@@ -25,8 +24,6 @@ function custom_get_category_parents( $id, $visited = array() ) {
   
   return $chain;
 }
-
-
 function bootstrap_breadcrumb() {
   global $post;
   

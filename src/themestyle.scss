@@ -1,16 +1,16 @@
 /*!
- * Start Bootstrap - Modern Business (https://startbootstrap.com/template-overviews/modern-business)
- * Copyright 2013-2017 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-logomodern-business-nav/blob/master/LICENSE)
- */
+* Start Bootstrap - Modern Business (https://startbootstrap.com/template-overviews/modern-business)
+* Copyright 2013-2017 Start Bootstrap
+* Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-logomodern-business-nav/blob/master/LICENSE)
+*/
 
 @import "bootstrap/bootstrap";
-
 $dark-overlay: rgba(0, 0, 0, 0.7);
-$font-body: 'Rubik', sans-serif !important;
-$bg-navbar: $light * 1.4; 
-$ln-navbar: $primary * 5; 
-
+$darken-overlay: rgba(0, 0, 0, 0.5);
+$font-body: 'Rubik',
+sans-serif !important;
+$bg-navbar: $light * 1.4;
+$ln-navbar: $primary * 5;
 .carousel-item {
     height: 84vh;
     min-height: 300px;
@@ -48,21 +48,19 @@ $ln-navbar: $primary * 5;
 }
 
 .navbar-nav {
-	li:first-child(){
-		border-left: 4px solid $secondary;
-	}
-	li:last-child(){
-		border-right: 4px solid $secondary;
-	}
+    li:first-child() {
+        border-left: 4px solid $secondary;
+    }
+    li:last-child() {
+        border-right: 4px solid $secondary;
+    }
 }
 
 #main-menu {
     margin-left: 180px;
-
-    ul li a{
+    ul li a {
         padding: 20px 15px;
     }
-
     ul li.active a,
     ul li:hover a {
         background-color: $primary;
@@ -81,3 +79,66 @@ $ln-navbar: $primary * 5;
     top: 0;
     border-bottom: 4px solid $primary;
 }
+
+#blog {
+    .card {
+        .card-header {
+            .meta-tags {
+                font-size: 80%;
+                font-weight: 400;
+            }
+        }
+        .card-body {
+            min-height: 250px;
+        }
+    }
+}
+
+
+#page-header{
+    position: relative;
+    height: 200px;
+    background-position: 0 -360px;
+    background-attachment: fixed;
+    color: #fff;
+    border-bottom: 1px #eee solid;
+    padding-top: 50px;
+
+    .banner-overlay {
+        position: absolute;
+        background-color: $darken-overlay;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .breadcrumb {
+        position: absolute;
+        z-index: 1010;
+        // left: 50%;
+        // transform: translateX(-50%);
+        bottom: -1rem;
+    }
+}
+
+#sidebar div {
+    div {
+        background: lighten( $light, 10%);
+        padding: 1rem;
+        margin: 0;
+    }
+    ul {
+        background: lighten( $light, 10%);
+        padding: 1rem;
+        list-style: none;
+        margin: 0;
+    }
+    h2{
+        font-size: 1rem !important;
+    }
+}
+
+
+
+
+
