@@ -80,36 +80,26 @@
 				<?php if ( is_front_page() ) { ?>
 				<?php get_template_part( 'template-parts/content', 'frontpage' ); ?>
 				<?php }	?>
-				<?php if (!is_front_page()) {?>
-				<?php if (is_page('blog')) {?>
-				<section id="page-header" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-12.jpg')" >
-					<div class="banner-overlay"></div>
-					<div class="container">
-						<div class="row">
-							<div class="title-header col-md-12 m-auto text-center">
-								<h1 class="display-5 text-uppercase text-warning">Welcome to our <?php wp_title(''); ?></h1>
-								<p class="d-none d-lg-block">Please feel free to explore our project and services !</h1>
-								</div>
-							</div>
-							<div class="d-none d-md-block">
-								<?php bootstrap_breadcrumb(); ?>
-							</div>
-						</div>
-					</div>
-				</section>
-				<?php } else {?>
-				<section id="page-header" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-10.jpg')" >
-					<div class="banner-overlay"></div>
-					<div class="container">
-						<div class="row">
-							<div class="title-header col-md-12 m-auto text-center">
-								<h1 class="display-5 text-uppercase text-warning"><?php the_title(); ?></h1>
-								<!-- <p class="d-none d-lg-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate eaque quasi neque nostrum, itaque accusamus reprehenderit.</h1> -->
-							</div>
-						</div>
-						<div class="d-none d-md-block">
-							<?php bootstrap_breadcrumb(); ?>
-						</div>
-					</section>
+
+
+<?php if (!is_front_page()) {?>
+	<section id="page-header" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-10.jpg')" >
+		<div class="banner-overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="title-header col-md-12 m-auto text-center">
+					<?php if (is_page('blog')) {?>
+					<h1 class="display-5 text-uppercase text-warning">Welcome to our <?php wp_title(''); ?></h1>
+					<p class="d-none d-lg-block">Please feel free to explore our project and services !</h1>
+					<?php } else {?>
+					<h1 class="display-5 text-uppercase text-warning"><?php wp_title(''); ?></h1>
 					<?php }	?>
-					<?php }	?>
+				</div>
+			</div>
+			<div class="d-none d-md-block">
+				<?php bootstrap_breadcrumb(); ?>
+			</div>
+		</div>
+	</section>	
+<?php }	?>
+
