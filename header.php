@@ -3,11 +3,11 @@
 * The header for our theme
 *
 * This is the template that displays all of the <head> section and everything up until <div id="content">
-	*
-	* @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
-	*
-	* @package Agratitudesign WPBS4
-	*/
+			*
+			* @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+			*
+			* @package Agratitudesign WPBS4
+			*/
 	?>
 	<!DOCTYPE html>
 	<html <?php language_attributes(); ?>>
@@ -65,9 +65,9 @@
 							'walker'          => new WP_Bootstrap_Navwalker()
 							) );
 							?>
-							<form class="form-inline ml-auto pt-2 pt-md-0" role="search" method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-								<input class="form-control mr-sm-1" type="text" value="<?php echo get_search_query(); ?>" placeholder="Search..." name="s" id="s">
-								<button type="submit" id="searchsubmit" value="<?php esc_attr_x('Search', 'b4st') ?>" class="btn btn-primary my-2 my-sm-0">
+							<form class="form-inline ml-auto pt-2 pt-md-0" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+								<input class="form-control mr-sm-1" type="search" value="<?php echo get_search_query() ?>" placeholder="Search..." name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>">
+								<button type="submit" id="searchsubmit" value="<?php echo esc_attr_x( 'Search', 'submit button' ) ?>" class="btn btn-primary my-2 my-sm-0">
 								<i class="fa fa-search"></i>
 								</button>
 							</form>
@@ -80,17 +80,36 @@
 				<?php if ( is_front_page() ) { ?>
 				<?php get_template_part( 'template-parts/content', 'frontpage' ); ?>
 				<?php }	?>
-				<?php if ( !is_front_page() ) { ?>
+				<?php if (!is_front_page()) {?>
+				<?php if (is_page('blog')) {?>
+				<section id="page-header" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-12.jpg')" >
+					<div class="banner-overlay"></div>
+					<div class="container">
+						<div class="row">
+							<div class="title-header col-md-12 m-auto text-center">
+								<h1 class="display-5 text-uppercase text-warning">Welcome to our <?php wp_title(''); ?></h1>
+								<p class="d-none d-lg-block">Please feel free to explore our project and services !</h1>
+								</div>
+							</div>
+							<div class="d-none d-md-block">
+								<?php bootstrap_breadcrumb(); ?>
+							</div>
+						</div>
+					</div>
+				</section>
+				<?php } else {?>
 				<section id="page-header" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-10.jpg')" >
 					<div class="banner-overlay"></div>
 					<div class="container">
 						<div class="row">
-							<div class="col-md-6 m-auto text-center">
-								<h1 class="text-warning">Product and Services</h1>
-								<p class="d-none d-lg-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate eaque quasi neque nostrum, itaque accusamus reprehenderit.</h1>
+							<div class="title-header col-md-12 m-auto text-center">
+								<h1 class="display-5 text-uppercase text-warning"><?php the_title(); ?></h1>
+								<!-- <p class="d-none d-lg-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate eaque quasi neque nostrum, itaque accusamus reprehenderit.</h1> -->
 							</div>
 						</div>
-						<?php bootstrap_breadcrumb(); ?>						
-					</div>
-				</section>
-				<?php }	?>
+						<div class="d-none d-md-block">
+							<?php bootstrap_breadcrumb(); ?>
+						</div>
+					</section>
+					<?php }	?>
+					<?php }	?>

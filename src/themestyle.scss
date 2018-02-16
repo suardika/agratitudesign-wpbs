@@ -41,6 +41,11 @@ $ln-navbar: $primary * 5;
     height: 100%;
 }
 
+
+.navbar {
+    border-bottom: 1px solid $gray-200;
+}
+
 .navbar .navbar-nav .nav-link {
     color: $black;
     background: $bg-navbar;
@@ -49,10 +54,10 @@ $ln-navbar: $primary * 5;
 
 .navbar-nav {
     li:first-child() {
-        border-left: 4px solid $secondary;
+        border-left: 4px solid $gray-200;
     }
     li:last-child() {
-        border-right: 4px solid $secondary;
+        border-right: 4px solid $gray-200;
     }
 }
 
@@ -78,6 +83,10 @@ $ln-navbar: $primary * 5;
     position: absolute;
     top: 0;
     border-bottom: 4px solid $primary;
+
+    @include media-breakpoint-down(sm) {
+        width: 100px;
+    }
 }
 
 #blog {
@@ -102,7 +111,6 @@ $ln-navbar: $primary * 5;
     background-attachment: fixed;
     color: #fff;
     border-bottom: 1px #eee solid;
-    padding-top: 50px;
 
     .banner-overlay {
         position: absolute;
@@ -112,6 +120,18 @@ $ln-navbar: $primary * 5;
         width: 100%;
         height: 100%;
     }
+
+    .title-header {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translateY(-40%);
+        transform: translateX(-50%);
+        h1 {
+            font-size: 2rem;
+        }
+    }
+
     .breadcrumb {
         position: absolute;
         z-index: 1010;
@@ -137,6 +157,17 @@ $ln-navbar: $primary * 5;
         font-size: 1rem !important;
     }
 }
+
+#our-archive {
+    .card {
+        margin-top: 1rem;
+    }
+    h2 {
+        font-size: 1.5rem !important;
+    }
+}
+
+
 
 
 

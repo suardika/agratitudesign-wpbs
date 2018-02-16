@@ -36,6 +36,7 @@ function agratitudesign_setup() {
 	add_theme_support( 'title-tag' );
 	add_theme_support('post-thumbnails');
 	add_image_size('bloglistImg', 350, 195, true);
+	add_image_size('postImg', 730, 245, true);
 	// add_image_size('sliderImg', 1920, 1080, true);
 
 	/*
