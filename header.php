@@ -25,11 +25,11 @@
 			<nav class="top-nav top-nav-inverse bg-dark">
 				<div class="container">
 					<div class="py-1 clearfix">
-						<div class="float-left">
+						<div class="address float-md-left">
 							<a href="tel:+6236292638" class="mr-2 text-xs text-white"><small><i class="fa fa-phone mr-1"></i>+62-362-92638</small></a>
 							<a href="mailto:hello@yoursite.com" class="mr-2 text-xs text-white"><small><i class="fa fa-envelope mr-1"></i>telaga10@gmail.com</small></a>
 						</div>
-						<div class="social-media-icon float-right">
+						<div class="social-media-icon float-md-right">
 							<a href="#x" class="btn btn-secondary btn-sm mr-2"><i class="fa fa-facebook"></i></a>
 							<a href="#x" class="btn btn-secondary btn-sm mr-2"><i class="fa fa-twitter"></i></a>
 							<a href="#x" class="btn btn-secondary btn-sm "><i class="fa fa-instagram"></i></a>
@@ -37,7 +37,7 @@
 					</div>
 					</div><!-- / container -->
 					</nav><!-- / top-nav-primary -->
-					<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top py-0">
+					<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
 						<div class="container no-padding">
 							<?php
 								// Display the Custom Logo
@@ -60,13 +60,13 @@
 								'container'       => false,
 								'menu_class'      => '',
 								'fallback_cb'     => '__return_false',
-							'items_wrap'      => '<ul id="%1$s" class="navbar-nav mr-auto mt-3 mt-lg-0 %2$s">%3$s</ul>',
-							'depth'           => 2,
-							'walker'          => new WP_Bootstrap_Navwalker()
+								'items_wrap'      => '<ul id="%1$s" class="navbar-nav text-center mt-3 mt-lg-0 %2$s">%3$s</ul>',
+								'depth'           => 2,
+								'walker'          => new WP_Bootstrap_Navwalker()
 							) );
 							?>
-							<form class="form-inline ml-auto pt-2 pt-md-0" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-								<input class="form-control mr-sm-1" type="search" value="<?php echo get_search_query() ?>" placeholder="Search..." name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>">
+							<form class="d-flex flex-row ml-auto pt-md-0" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+								<input class="form-control my-2 my-sm-0" type="search" value="<?php echo get_search_query() ?>" placeholder="Search..." name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>">
 								<button type="submit" id="searchsubmit" value="<?php echo esc_attr_x( 'Search', 'submit button' ) ?>" class="btn btn-primary my-2 my-sm-0">
 								<i class="fa fa-search"></i>
 								</button>
