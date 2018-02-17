@@ -79,7 +79,7 @@
 				'comment_field'			=> '<div class="form-group">' . '<label for="comment">' . __( 'Comment', 'wp_babobski' ) . '</label><span>*</span>' .
 										'<textarea id="comment" class="form-control" name="comment" rows="3" aria-required="true"></textarea><p id="d3" class="text-danger"></p>' . '</div>',
 				'comment_notes_after' 	=> '',
-				'class_submit'			=> 'btn btn-default'
+				'class_submit'			=> 'btn btn-primary'
 			); ?>
 	<?php comment_form($comments_arg);
 	echo str_replace('class="comment-form"','class="comment-form" name="commentForm" onsubmit="return validateForm();"',ob_get_clean());

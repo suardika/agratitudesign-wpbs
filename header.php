@@ -21,7 +21,7 @@
 			</title>
 			<?php wp_head(); ?>
 		</head>
-		<body <?php body_class(); ?>>
+		<body <?php body_class(); ?>>			
 			<nav class="top-nav top-nav-inverse bg-dark">
 				<div class="container">
 					<div class="py-1 clearfix">
@@ -82,24 +82,24 @@
 				<?php }	?>
 
 
-<?php if (!is_front_page()) {?>
-	<section id="page-header" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-10.jpg')" >
-		<div class="banner-overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="title-header col-md-12 m-auto text-center">
-					<?php if (is_page('blog')) {?>
-					<h1 class="display-5 text-uppercase text-warning">Welcome to our <?php wp_title(''); ?></h1>
-					<p class="d-none d-lg-block">Please feel free to explore our project and services !</h1>
-					<?php } else {?>
-					<h1 class="display-5 text-uppercase text-warning"><?php wp_title(''); ?></h1>
-					<?php }	?>
-				</div>
-			</div>
-			<div class="d-none d-md-block">
-				<?php bootstrap_breadcrumb(); ?>
-			</div>
-		</div>
-	</section>	
-<?php }	?>
+				<?php if (!is_front_page()) {?>
+					<section id="page-header" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/assets/img/slider/slider-10.jpg')" >
+						<div class="banner-overlay"></div>
+						<div class="container">
+							<div class="row">
+								<div class="title-header col-md-12 m-auto text-center">
+									<?php if (is_page('blog')) {?>
+									<h1 class="display-5 text-uppercase text-warning">Welcome to our <?php wp_title(''); ?></h1>
+									<p class="d-none d-lg-block">Please feel free to explore our project and services !</h1>
+									<?php } else {?>
+										<h1 class="display-5 text-uppercase text-warning"><?php wp_title(''); ?></h1>										
+									<?php }	?>
+								</div>
+							</div>
+							<div class="d-none d-md-block">
+								<?php bootstrap_breadcrumb(); ?>
+							</div>
+						</div>
+					</section>	
+				<?php }	?>
 

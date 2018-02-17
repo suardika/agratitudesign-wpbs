@@ -6899,3 +6899,9 @@ a.text-dark:hover, a.text-dark:focus {
 
 #our-archive h2 {
   font-size: 1.5rem !important; }
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: none; }

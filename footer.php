@@ -22,6 +22,8 @@
 	</div>
 	<!-- /.container -->
 </footer>
+<a class='btn btn-primary back-to-top fa fa-arrow-up' href='#'></a>
+
 <?php wp_footer(); ?>
 </body>
 </html>

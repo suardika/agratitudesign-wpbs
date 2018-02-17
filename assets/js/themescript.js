@@ -5,6 +5,23 @@
 // })(jQuery);
 // 
 
+
+(function($) {
+	$(window).scroll(function() {
+	  if ($(this).scrollTop() > 100) {
+	      $('.back-to-top').fadeIn();
+	  } else {
+	      $('.back-to-top').fadeOut();
+	  }
+	});
+	$('.back-to-top').on('click', function() {
+	  $("html, body").animate({
+	      scrollTop: 0
+	  }, 600);
+	  return false;
+	});
+})(jQuery);
+
 // ekkoLightbox Script
 jQuery(function($) {
 	$(document).on('click', '[data-toggle="lightbox"]', function(event) {

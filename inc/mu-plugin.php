@@ -73,7 +73,8 @@ function agratitudesign_post_types() {
   register_post_type('slideshow', array(
     'show_in_rest' => true,
     'supports' => array('title', 'editor', 'thumbnail'),
-    'public' => false, //hide from search
+    'public' => true,
+    'exclude_from_search' => true, 
     'labels' => array(
       'name' => 'Slideshows',
       'add_new_item' => 'Add New Slideshow',

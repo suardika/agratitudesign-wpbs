@@ -17,9 +17,9 @@ get_header(); ?>
   <div class="container">
     <div class="row">
       <div class="col-md-6 m-auto text-center">
-        <h2 class="mt-4">Product and Services</h2>
+        <h2 class="mt-4 text-dark">Product and Services</h2>
         <hr class="lines">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, saepe.</p>
+        <p>Please feel free to explore our project and services !</p>
       </div>
     </div>
     <div class="row">
