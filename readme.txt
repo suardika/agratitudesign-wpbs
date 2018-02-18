@@ -489,3 +489,4 @@ npm install ekko-lightbox --save
 
 ctrl+shift+H -> Beautify sublime
 ctrl+alt+M -> Minify sublime
+

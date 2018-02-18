@@ -27,6 +27,11 @@ $ln-navbar: $primary * 5;
     }
 }
 
+.carousel-caption {
+    position: absolute;
+    top: 55%;
+    transform: translateY(-55%);
+}
 
 @include media-breakpoint-down(sm) {
 
@@ -192,6 +197,6 @@ $ln-navbar: $primary * 5;
 // img fluid for content imge
 .post-content-body p img,
 .wp-caption img {
-     height: auto; 
-     max-width: 100%;
+    height: auto;
+    max-width: 100%;
 }

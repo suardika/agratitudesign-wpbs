@@ -19,8 +19,8 @@ get_header(); ?>
         <div class="row">
           <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-          <div id="our-archive">
-            <div class="card mb-4">
+          <div id="content-archive">
+            <div class="card ml-3 my-3">
               <div class="card-body">
                 <div class="row">
                   <div class="col-lg-6">

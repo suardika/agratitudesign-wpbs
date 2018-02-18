@@ -89,16 +89,15 @@ function agratitudesign_custom_logo_setup() {
 add_action( 'after_setup_theme', 'agratitudesign_custom_logo_setup' );
 
 /**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
+ * Halt the main query in the case of an empty search 
  */
-function agratitudesign_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'agratitudesign_content_width', 640 );
-}
-add_action( 'after_setup_theme', 'agratitudesign_content_width', 0 );
+add_filter( 'posts_search', function( $search, \WP_Query $q )
+{
+    if( ! is_admin() && empty( $search ) && $q->is_search() && $q->is_main_query() )
+        $search .=" AND 0=1 ";
+
+    return $search;
+}, 10, 2 );
 
 /**
  * Add mu-plugin Scritps

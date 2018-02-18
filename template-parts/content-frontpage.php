@@ -41,7 +41,7 @@
 					<div class="carousel-item carousel-image-1 <?php echo $counter==1 ? "active": ""; ?>" style="background-image: url('<?php echo $image[url]; ?>')" >
 						<div class="dark-overlay"></div>
 						<div class="container">
-							<div class="carousel-caption text-center mb-5">
+							<div class="carousel-caption text-center">
 								<h1 class="display-3 animated wow fadeInDown" data-wow-delay=".7s"><?php the_title(); ?></h1>
 								<p class="d-none d-sm-block animated wow fadeInUp" data-wow-delay=".9s"><?php echo get_the_content(); ?></p>
 								<a href="<?php the_field('slider_link_text'); ?>" class="btn btn-danger btn-lg animated wow fadeInUp" data-wow-delay=".11s"><?php the_field('slider_link_value'); ?></a>

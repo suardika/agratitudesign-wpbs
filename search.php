@@ -19,8 +19,8 @@ get_header(); ?>
         <div class="row">
           <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-          <div id="search-result">
-            <div class="card mb-4">
+          <div class="search-result">
+            <div class="card ml-3 my-3">
               <div class="card-body">
                 <div class="row">
                   <div class="col-lg-6">
@@ -48,8 +48,15 @@ get_header(); ?>
             </div>
           </div>
 
+
           <?php endwhile; else : ?>
-          <p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
+          <div class="search-result col-lg-12">
+            <div class="card border-warning ml-3 my-3">
+              <div class="card-body align-items-center d-flex justify-content-center">
+                  <p class="display-4 text-center"><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
+              </div>
+            </div>
+          </div>          
           <?php endif; ?>
         </div>
         <div id="agr-pagination">
